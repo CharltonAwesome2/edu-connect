@@ -1,0 +1,35 @@
+# Lifted directly from
+# https://github.com/github/gitignore/blob/main/Maven.gitignore
+# https://gary-rowe.com/2012-10-12-a-gitignore-file-for-intellij-and-eclipse-with-maven
+
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://maven.apache.org/wrapper/#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+
+# Operating System Files
+.DS_Store # Mac
+*.log
+*.class # generally superfluous as it should be in target/
