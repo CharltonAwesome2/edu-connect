@@ -49,13 +49,7 @@ public class TutorProfile {
 
     @Override
     public String toString() {
-        return "TutorProfile{" +
-                "tutorProfileId=" + tutorProfileId +
-                ", bio='" + bio + '\'' +
-                ", yearsExperience=" + yearsExperience +
-                ", hourlyRate=" + hourlyRate +
-                ", rating=" + rating +
-                '}';
+        return "TutorProfile{" + "tutorProfileId=" + tutorProfileId + ", bio='" + bio + '\'' + ", yearsExperience=" + yearsExperience + ", hourlyRate=" + hourlyRate + ", rating=" + rating + '}';
     }
 
     public static class Builder {
@@ -90,10 +84,19 @@ public class TutorProfile {
             return this;
         }
 
+        public Builder copy(TutorProfile tutorProfile) {
+            this.tutorProfileId = tutorProfile.tutorProfileId;
+            this.bio = tutorProfile.bio;
+            this.yearsExperience = tutorProfile.yearsExperience;
+            this.hourlyRate = tutorProfile.hourlyRate;
+            this.rating = tutorProfile.rating;
+            return this;
+        }
+
         public TutorProfile build() {
-            if(yearsExperience < 0)throw new IllegalArgumentException(("Years of Experiment cannot be negative"));
-            if(hourlyRate < 0) throw new IllegalArgumentException("Hourly Rate cannot negative");
-            if(rating < 0 || rating > 0) throw new IllegalArgumentException(("Rating must be between 0 and 5"));
+            if (yearsExperience < 0) throw new IllegalArgumentException(("Years of Experiment cannot be negative"));
+            if (hourlyRate < 0) throw new IllegalArgumentException("Hourly Rate cannot negative");
+            if (rating < 0 || rating > 0) throw new IllegalArgumentException(("Rating must be between 0 and 5"));
             return new TutorProfile(this);
         }
 

@@ -1,7 +1,5 @@
 package za.ac.cput.domain;
 
-import javax.security.auth.Subject;
-
 /**
  * Esaile Siani
  * Djiakeng Franck
@@ -72,7 +70,7 @@ public class TutorSubject {
         }
 
         //Add the deep copy method to facilitate its Repo;
-        public Builder copy(TutorSubject tutorSubject){
+        public Builder copy(TutorSubject tutorSubject) {
             this.tutorSubjectId = tutorSubject.tutorSubjectId;
             this.tutorProfile = tutorSubject.tutorProfile;
             this.subject = tutorSubject.subject;
