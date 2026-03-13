@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 /* Payment.java
 Payment domain model class
-Author: Ayabonga Yawa (221241558)
+Author: Ayabonga Jervasio Yawa (221241558)
 Date: 11 March 2026
 */
 
@@ -53,6 +53,15 @@ public class Payment {
         return paymentDate;
     }
 
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "paymentID=" + paymentID +
+                ", amount=" + amount +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                ", paymentDate=" + paymentDate +
+                '}';
+    }
 
     //Builder class
     public static class Builder {

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 /* TutorReview.java
 TutorReview domain model class
-Author: Ayabonga Yawa (221241558)
+Author: Ayabonga Jervasio Yawa (221241558)
 Date: 11 March 2026
 */
 public class TutorReview {
@@ -47,6 +47,16 @@ public class TutorReview {
 
     public LocalDateTime getReviewDate() {
         return reviewDate;
+    }
+
+    @Override
+    public String toString() {
+        return "TutorReview{" +
+                "reviewID=" + reviewID +
+                ", rating=" + rating +
+                ", comment='" + comment + '\'' +
+                ", reviewDate=" + reviewDate +
+                '}';
     }
 
     //Builder Class
