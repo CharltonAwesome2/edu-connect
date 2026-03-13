@@ -73,22 +73,22 @@ public class Payment {
 
 
         //Builder setters
-        public Builder paymentId(Long paymentID) {
+        public Builder setpaymentId(Long paymentID) {
             this.paymentID = paymentID;
             return this;
         }
 
-        public Builder amount(Long amount) {
+        public Builder setamount(Long amount) {
             this.amount = amount;
             return this;
         }
 
-        public Builder paymentStatus(String paymentStatus) {
+        public Builder setpaymentStatus(String paymentStatus) {
             this.paymentStatus = paymentStatus;
             return this;
         }
 
-        public Builder paymentDate(LocalDateTime paymentDate) {
+        public Builder setpaymentDate(LocalDateTime paymentDate) {
             this.paymentDate = paymentDate;
             return this;
 
