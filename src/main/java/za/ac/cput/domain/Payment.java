@@ -15,7 +15,7 @@ public class Payment {
     private double amount;
     private String paymentStatus;
     private LocalDateTime paymentDate;
-    //private TutoringSession session;
+    private TutoringSession session;
     //private Long sessionID
     //private Long finalAmount;
 
@@ -53,6 +53,10 @@ public class Payment {
         return paymentDate;
     }
 
+    public TutoringSession getSession(){
+        return session;
+    }
+
     @Override
     public String toString() {
         return "Payment{" +
@@ -60,6 +64,7 @@ public class Payment {
                 ", amount=" + amount +
                 ", paymentStatus='" + paymentStatus + '\'' +
                 ", paymentDate=" + paymentDate +
+                ", session=" + session +
                 '}';
     }
 
@@ -69,7 +74,7 @@ public class Payment {
         private double amount;
         private String paymentStatus;
         private LocalDateTime paymentDate;
-        //private TutoringSession session;
+        private TutoringSession session;
 
 
         //Builder setters
@@ -94,12 +99,21 @@ public class Payment {
 
         }
 
+        public Builder setsession(TutoringSession session) {
+            this.session = session;
+            return this;
+
+        }
+
+
+
         //Builder copy
         public Builder copy(Payment pay){
             this.paymentID = pay.paymentID;
             this.amount = pay.amount;
             this.paymentStatus = pay.paymentStatus;
             this.paymentDate = pay.paymentDate;
+            this.session = session;
             return this;
         }
 

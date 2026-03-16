@@ -12,8 +12,8 @@ public class TutorReview {
     private int rating;
     private String comment;
     private LocalDateTime reviewDate;
-    // private User student;
-    // private TutoringSession session;
+    private User student;
+    private TutoringSession session;
     //private Long sessionID
 
     public static Builder builder() {
@@ -25,6 +25,8 @@ public class TutorReview {
         this.rating = builder.rating;
         this.comment = builder.comment;
         this.reviewDate = builder.reviewDate;
+        this.student = builder.student;
+        this.session = builder.session;
     }
 
     //Review submission method
@@ -49,6 +51,15 @@ public class TutorReview {
         return reviewDate;
     }
 
+    public User getStudent(){
+        return student;
+
+    }
+
+    public TutoringSession getSession(){
+        return session;
+    }
+
     @Override
     public String toString() {
         return "TutorReview{" +
@@ -56,6 +67,8 @@ public class TutorReview {
                 ", rating=" + rating +
                 ", comment='" + comment + '\'' +
                 ", reviewDate=" + reviewDate +
+                ", student=" + student +
+                ", session=" + session +
                 '}';
     }
 
@@ -66,6 +79,10 @@ public class TutorReview {
         private String comment;
 
         private LocalDateTime reviewDate;
+        private User student;
+        private TutoringSession session;
+
+
 
         public Builder setReviewID(long reviewID) {
             this.reviewID = reviewID;
@@ -87,12 +104,25 @@ public class TutorReview {
             return this;
         }
 
+        public Builder setSession(User student){
+            this.student = student;
+            return this;
+
+        }
+
+        public Builder setSession(TutoringSession session){
+            this.session = session;
+            return this;
+        }
+
         //Builder copy
         public Builder copy(TutorReview review) {
             this.reviewID = review.reviewID;
             this.rating = review.rating;
             this.comment = review.comment;
             this.reviewDate = review.reviewDate;
+            this.student = student;
+            this.session = session;
             return this;
         }
 
