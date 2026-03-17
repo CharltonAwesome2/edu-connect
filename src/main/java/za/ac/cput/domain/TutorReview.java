@@ -51,12 +51,12 @@ public class TutorReview {
         return reviewDate;
     }
 
-    public User getStudent(){
+    public User getStudent() {
         return student;
 
     }
 
-    public TutoringSession getSession(){
+    public TutoringSession getSession() {
         return session;
     }
 
@@ -74,14 +74,13 @@ public class TutorReview {
 
     //Builder Class
     public static class Builder {
-        private long reviewID;
+        private Long reviewID;
         private int rating;
         private String comment;
 
         private LocalDateTime reviewDate;
         private User student;
         private TutoringSession session;
-
 
 
         public Builder setReviewID(long reviewID) {
@@ -104,13 +103,13 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setSession(User student){
+        public Builder setStudent(User student) {
             this.student = student;
             return this;
 
         }
 
-        public Builder setSession(TutoringSession session){
+        public Builder setSession(TutoringSession session) {
             this.session = session;
             return this;
         }
@@ -121,8 +120,8 @@ public class TutorReview {
             this.rating = review.rating;
             this.comment = review.comment;
             this.reviewDate = review.reviewDate;
-            this.student = student;
-            this.session = session;
+            this.student = review.student;
+            this.session = review.session;
             return this;
         }
 

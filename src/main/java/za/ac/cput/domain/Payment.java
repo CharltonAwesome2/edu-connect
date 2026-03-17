@@ -29,6 +29,7 @@ public class Payment {
         this.amount = builder.amount;
         this.paymentStatus = builder.paymentStatus;
         this.paymentDate = builder.paymentDate;
+        this.session = builder.session;
     }
 
     //Payment processing method
@@ -45,7 +46,7 @@ public class Payment {
         return amount;
     }
 
-    public String getPayments() {
+    public String getPaymentStatus() {
         return paymentStatus;
     }
 
@@ -53,7 +54,7 @@ public class Payment {
         return paymentDate;
     }
 
-    public TutoringSession getSession(){
+    public TutoringSession getSession() {
         return session;
     }
 
@@ -78,46 +79,46 @@ public class Payment {
 
 
         //Builder setters
-        public Builder setpaymentId(Long paymentID) {
+        public Builder setPaymentId(Long paymentID) {
             this.paymentID = paymentID;
             return this;
         }
 
-        public Builder setamount(Long amount) {
+        public Builder setAmount(Double amount) {
             this.amount = amount;
             return this;
         }
 
-        public Builder setpaymentStatus(String paymentStatus) {
+        public Builder setPaymentStatus(String paymentStatus) {
             this.paymentStatus = paymentStatus;
             return this;
         }
 
-        public Builder setpaymentDate(LocalDateTime paymentDate) {
+        public Builder setPaymentDate(LocalDateTime paymentDate) {
             this.paymentDate = paymentDate;
             return this;
 
         }
 
-        public Builder setsession(TutoringSession session) {
+        public Builder setSession(TutoringSession session) {
             this.session = session;
             return this;
 
         }
 
 
-
         //Builder copy
-        public Builder copy(Payment pay){
+        public Builder copy(Payment pay) {
             this.paymentID = pay.paymentID;
             this.amount = pay.amount;
             this.paymentStatus = pay.paymentStatus;
             this.paymentDate = pay.paymentDate;
-            this.session = session;
+            this.session = pay.session;
             return this;
         }
 
         public Payment build() {
+
             return new Payment(this);
         }
     }
