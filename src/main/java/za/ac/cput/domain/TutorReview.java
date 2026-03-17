@@ -16,11 +16,7 @@ public class TutorReview {
     private TutoringSession session;
     //private Long sessionID
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    public TutorReview(Builder builder) {
+    private TutorReview(Builder builder) {
         this.reviewID = builder.reviewID;
         this.rating = builder.rating;
         this.comment = builder.comment;

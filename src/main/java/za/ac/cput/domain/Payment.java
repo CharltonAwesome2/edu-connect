@@ -11,7 +11,6 @@ Date: 11 March 2026
 
 public class Payment {
     private Long paymentID;
-
     private double amount;
     private String paymentStatus;
     private LocalDateTime paymentDate;
@@ -20,11 +19,8 @@ public class Payment {
     //private Long finalAmount;
 
 
-    public Payment() {
-    }
-
     //Constructor
-    public Payment(Builder builder) {
+    private Payment(Builder builder) {
         this.paymentID = builder.paymentID;
         this.amount = builder.amount;
         this.paymentStatus = builder.paymentStatus;
