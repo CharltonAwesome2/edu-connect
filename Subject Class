@@ -1,9 +1,9 @@
 package za.ac.cput.domain;
 
 // SubjectClass.java
-Subject model class
-Author:Reotshepile Stock (230875807)
-Date:17 March 2026//
+//Subject model class
+//Author:Reotshepile Stock (230875807)
+//Date:17 March 2026
 
 public class Subject {
 
