@@ -5,38 +5,47 @@ public class Subject {
     private Long subjectId;
     private String subjectName;
 
-    public Subject() {
+    
+    private Subject(Builder builder) {
+        this.subjectId = builder.subjectId;
+        this.subjectName = builder.subjectName;
     }
 
-    // Parameterized constructor
-    public Subject(Long subjectId, String subjectName) {
-        this.subjectId = subjectId;
-        this.subjectName = subjectName;
-    }
-
-   
+    
     public Long getSubjectId() {
         return subjectId;
-    }
-
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
     }
 
     public String getSubjectName() {
         return subjectName;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
-    }
-
-   
+    
     @Override
     public String toString() {
         return "Subject{" +
                 "subjectId=" + subjectId +
                 ", subjectName='" + subjectName + '\'' +
                 '}';
+    }
+
+    public static class Builder {
+
+        private Long subjectId;
+        private String subjectName;
+
+        public Builder setSubjectId(Long subjectId) {
+            this.subjectId = subjectId;
+            return this;
+        }
+
+        public Builder setSubjectName(String subjectName) {
+            this.subjectName = subjectName;
+            return this;
+        }
+
+        public Subject build() {
+            return new Subject(this);
+        }
     }
 }
