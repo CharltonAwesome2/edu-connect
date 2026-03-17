@@ -79,12 +79,12 @@ public class Payment {
 
 
         //Builder setters
-        public Builder setPaymentId(Long paymentID) {
+        public Builder setPaymentID(Long paymentID) {
             this.paymentID = paymentID;
             return this;
         }
 
-        public Builder setAmount(Double amount) {
+        public Builder setAmount(double amount) {
             this.amount = amount;
             return this;
         }
