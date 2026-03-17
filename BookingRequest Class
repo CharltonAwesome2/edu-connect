@@ -1,0 +1,55 @@
+package za.ac.cput.domain;
+
+import java.time.LocalDate;
+
+public class BookingRequest {
+
+    private Long tutoringSessionId;
+    private LocalDate date;
+    private Long userId;
+
+    
+    public BookingRequest() {
+    }
+
+    public BookingRequest(Long tutoringSessionId, LocalDate date, Long userId) {
+        this.tutoringSessionId = tutoringSessionId;
+        this.date = date;
+        this.userId = userId;
+    }
+
+ 
+    public Long getTutoringSessionId() {
+        return tutoringSessionId;
+    }
+
+    public void setTutoringSessionId(Long tutoringSessionId) {
+        this.tutoringSessionId = tutoringSessionId;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "BookingRequest{" +
+                "tutoringSessionId=" + tutoringSessionId +
+                ", date=" + date +
+                ", userId=" + userId +
+                '}';
+    }
+}
