@@ -1,7 +1,7 @@
 package za.ac.cput.domain;
 
-// SubjectClass.java
-//Subject model class
+// BookingRequest.java
+//BookingRequest model class
 //Author:Reotshepile Stock (230875807)
 //Date:17 March 2026
 
