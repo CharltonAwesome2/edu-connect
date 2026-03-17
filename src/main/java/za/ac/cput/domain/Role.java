@@ -23,6 +23,11 @@ public class Role {
         this.description = builder.description;
     }
 
+    @Override
+    public String toString() {
+        return "Role [roleId=" + roleId + ", roleName=" + roleName + ", description=" + description + "]";
+    }
+
     public Long getRoleId() {
         return roleId;
     }

@@ -2,7 +2,14 @@ package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
-//import java.util.ArrayList;
+import java.util.ArrayList;
+
+/**
+ * User.java
+ * User model class
+ * Author: Lesego Kutlwano Tshabalala (240263952)
+ * Date: 11 March 2026
+ */
 
 public class User {
     private long userId;
@@ -12,9 +19,9 @@ public class User {
     private String email;
     private String contactNumber;
     private LocalDateTime createdAt;
-    //private List<UserRole> roles;
-    //private List<Notification> notifications;
-    //private List<Report> reportsFiled;
+    private List<UserRole> roles;
+    private List<Notification> notifications;
+    private List<Report> reportsFiled;
 
     private User(Builder builder) {
         this.userId = builder.userId;
@@ -24,15 +31,18 @@ public class User {
         this.email = builder.email;
         this.contactNumber = builder.contactNumber;
         this.createdAt = builder.createdAt;
-        //this.roles = builder.roles != null ? new ArrayList<>(builder.roles) : new ArrayList<>();
-        //this.notifications = builder.notifications != null ? new ArrayList<>(builder.notifications) : new ArrayList<>();
-        //this.reportsFiled = builder.reportsFiled != null ? new ArrayList<>(builder.reportsFiled) : new ArrayList<>();
+        this.roles = builder.roles != null ? new ArrayList<>(builder.roles) : new ArrayList<>();
+        this.notifications = builder.notifications != null ? new ArrayList<>(builder.notifications) : new ArrayList<>();
+        this.reportsFiled = builder.reportsFiled != null ? new ArrayList<>(builder.reportsFiled) : new ArrayList<>();
     }
 
-    public static Builder builder() {
-        return new Builder();
+    public void register(){
+
     }
 
+    public void updateProfile(){
+        
+    }
 
     public long getUserId() {
         return userId;
@@ -62,6 +72,25 @@ public class User {
         return createdAt;
     }
 
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public List<Report> getReportsFiled() {
+        return reportsFiled;
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", name=" + name + ", surname=" + surname + ", studentNumber=" + studentNumber
+                + ", email=" + email + ", contactNumber=" + contactNumber + ", createdAt=" + createdAt + ", roles="
+                + roles + ", notifications=" + notifications + ", reportsFiled=" + reportsFiled + "]";
+    }
+
     public static class Builder {
         private long userId;
         private String name;
@@ -70,61 +99,75 @@ public class User {
         private String email;
         private String contactNumber;
         private LocalDateTime createdAt;
-        //private List<UserRole> roles;
-        //private List<Notification> notifications;
-        //private List<Report> reportsFiled;
+        private List<UserRole> roles;
+        private List<Notification> notifications;
+        private List<Report> reportsFiled;
 
-        public Builder userId(long userId) {
+        public Builder setUserId(long userId) {
             this.userId = userId;
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder surname(String surname) {
+        public Builder setSurname(String surname) {
             this.surname = surname;
             return this;
         }
 
-        public Builder studentNumber(String studentNumber) {
+        public Builder setStudentNumber(String studentNumber) {
             this.studentNumber = studentNumber;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder contactNumber(String contactNumber) {
+        public Builder setContactNumber(String contactNumber) {
             this.contactNumber = contactNumber;
             return this;
         }
 
-        public Builder createdAt(LocalDateTime createdAt) {
+        public Builder setCreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
         //waiting for other classes to be implemented before adding these
 
-        /*public Builder roles(List<UserRole> roles) {
+        public Builder setRoles(List<UserRole> roles) {
             this.roles = roles;
             return this;
         }
 
-        public Builder notifications(List<Notification> notifications) {
+        public Builder setNotifications(List<Notification> notifications) {
             this.notifications = notifications;
             return this;
         }
 
-        public Builder reportsFiled(List<Report> reportsFiled) {
+        public Builder setReportsFiled(List<Report> reportsFiled) {
             this.reportsFiled = reportsFiled;
             return this;
-        }*/
+        }
+
+        public Builder copy(User user) {
+            this.userId = user.userId;
+            this.name = user.name;
+            this.surname = user.surname;
+            this.studentNumber = user.studentNumber;
+            this.email = user.email;
+            this.contactNumber = user.contactNumber;
+            this.createdAt = user.createdAt;
+            this.roles = user.roles != null ? new ArrayList<>(user.roles) : new ArrayList<>();
+            this.notifications = user.notifications != null ? new ArrayList<>(user.notifications) : new ArrayList<>();
+            this.reportsFiled = user.reportsFiled != null ? new ArrayList<>(user.reportsFiled) : new ArrayList<>();
+            return this;
+        }
 
         public User build() {
             return new User(this);

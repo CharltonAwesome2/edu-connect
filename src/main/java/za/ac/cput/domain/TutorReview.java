@@ -8,7 +8,7 @@ Author: Ayabonga Jervasio Yawa (221241558)
 Date: 11 March 2026
 */
 public class TutorReview {
-    private Long reviewID;
+    private Long reviewId;
     private int rating;
     private String comment;
     private LocalDateTime reviewDate;
@@ -17,7 +17,7 @@ public class TutorReview {
     //private Long sessionID
 
     private TutorReview(Builder builder) {
-        this.reviewID = builder.reviewID;
+        this.reviewId = builder.reviewId;
         this.rating = builder.rating;
         this.comment = builder.comment;
         this.reviewDate = builder.reviewDate;
@@ -31,8 +31,8 @@ public class TutorReview {
     }
 
     //Getters
-    public Long getReviewID() {
-        return reviewID;
+    public Long getReviewId() {
+        return reviewId;
     }
 
     public int getRating() {
@@ -59,7 +59,7 @@ public class TutorReview {
     @Override
     public String toString() {
         return "TutorReview{" +
-                "reviewID=" + reviewID +
+                "reviewID=" + reviewId +
                 ", rating=" + rating +
                 ", comment='" + comment + '\'' +
                 ", reviewDate=" + reviewDate +
@@ -70,17 +70,16 @@ public class TutorReview {
 
     //Builder Class
     public static class Builder {
-        private Long reviewID;
+        private Long reviewId;
         private int rating;
         private String comment;
-
         private LocalDateTime reviewDate;
         private User student;
         private TutoringSession session;
 
 
-        public Builder setReviewID(long reviewID) {
-            this.reviewID = reviewID;
+        public Builder setReviewID(long reviewId) {
+            this.reviewId = reviewId;
             return this;
         }
 
@@ -112,7 +111,7 @@ public class TutorReview {
 
         //Builder copy
         public Builder copy(TutorReview review) {
-            this.reviewID = review.reviewID;
+            this.reviewId = review.reviewId;
             this.rating = review.rating;
             this.comment = review.comment;
             this.reviewDate = review.reviewDate;

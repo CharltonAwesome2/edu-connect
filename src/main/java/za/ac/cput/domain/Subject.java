@@ -1,5 +1,8 @@
 package za.ac.cput.domain;
 
+import java.util.List;
+import java.util.ArrayList;
+
 // SubjectClass.java
 //Subject model class
 //Author:Reotshepile Stock (230875807)
@@ -9,14 +12,18 @@ public class Subject {
 
     private Long subjectId;
     private String subjectName;
+    private String subjectCode;
+    private String department;
+    private List<TutorSubject> tutorSubjects;
 
-    
     private Subject(Builder builder) {
         this.subjectId = builder.subjectId;
         this.subjectName = builder.subjectName;
+        this.subjectCode = builder.subjectCode;
+        this.department = builder.department;
+        this.tutorSubjects = builder.tutorSubjects != null ? new ArrayList<>(builder.tutorSubjects) : new ArrayList<>();
     }
 
-    
     public Long getSubjectId() {
         return subjectId;
     }
@@ -25,12 +32,26 @@ public class Subject {
         return subjectName;
     }
 
-    
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public List<TutorSubject> getTutorSubjects() {
+        return tutorSubjects;
+    }
+
     @Override
     public String toString() {
         return "Subject{" +
                 "subjectId=" + subjectId +
+                "department=" + department +
+                "tutorSubjects=" + tutorSubjects +
                 ", subjectName='" + subjectName + '\'' +
+                ", subjectCode='" + subjectCode + '\'' +
                 '}';
     }
 
@@ -38,6 +59,9 @@ public class Subject {
 
         private Long subjectId;
         private String subjectName;
+        private String subjectCode;
+        private String department;
+        private List<TutorSubject> tutorSubjects;
 
         public Builder setSubjectId(Long subjectId) {
             this.subjectId = subjectId;
@@ -46,6 +70,32 @@ public class Subject {
 
         public Builder setSubjectName(String subjectName) {
             this.subjectName = subjectName;
+            return this;
+        }
+
+        public Builder setDepartment(String department) {
+            this.department = department;
+            return this;
+        }
+
+        public Builder setTutorSubjects(List<TutorSubject> tutorSubjects) {
+            this.tutorSubjects = tutorSubjects;
+            return this;
+        }
+
+        public Builder setSubjectCoe(String subjectCode){
+            this.subjectCode = subjectCode;
+            return this;
+
+        }
+
+        public Builder copy(Subject subject) {
+            this.subjectId = subject.subjectId;
+            this.subjectName = subject.subjectName;
+            this.subjectCode = subject.subjectCode;
+            this.department = subject.department;
+            this.tutorSubjects = subject.tutorSubjects != null ? new ArrayList<>(subject.tutorSubjects)
+                    : new ArrayList<>();
             return this;
         }
 

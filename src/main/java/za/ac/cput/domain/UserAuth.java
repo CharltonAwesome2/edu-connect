@@ -2,6 +2,13 @@ package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
 
+/**
+ * UserAuth.java
+ * UserAuth model class
+ * Author: Lesego Kutlwano Tshabalala (240263952)
+ * Date: 11 March 2026
+ */
+
 public class UserAuth {
     private long authId;
     private String passwordHash;
@@ -11,14 +18,22 @@ public class UserAuth {
 
     private UserAuth(Builder builder) {
         this.authId = builder.authId;
-        this.passwordHash = builder.passwordHash;
+        this.passwordHash = builder.setPasswordHash;
         this.salt = builder.salt;
         this.createdAt = builder.createdAt;
         this.user = builder.user;
     }
 
-    public static Builder builder() {
-        return new Builder();
+    public void login() {
+
+    }
+
+    public void logout() {
+
+    }
+
+    public void updatePassword() {
+
     }
 
     public long getAuthId() {
@@ -41,35 +56,51 @@ public class UserAuth {
         return user;
     }
 
+    
+    @Override
+    public String toString() {
+        return "UserAuth [authId=" + authId + ", passwordHash=" + passwordHash + ", salt=" + salt + ", createdAt="
+                + createdAt + ", user=" + user + "]";
+    }
+
     public static class Builder {
         private long authId;
-        private String passwordHash;
+        private String setPasswordHash;
         private String salt;
         private LocalDateTime createdAt;
         private User user;
 
-        public Builder authId(long authId) {
+        public Builder setAuthId(long authId) {
             this.authId = authId;
             return this;
         }
 
         public Builder passwordHash(String passwordHash) {
-            this.passwordHash = passwordHash;
+            this.setPasswordHash = passwordHash;
             return this;
         }
 
-        public Builder salt(String salt) {
+        public Builder setSalt(String salt) {
             this.salt = salt;
             return this;
         }
 
-        public Builder createdAt(LocalDateTime createdAt) {
+        public Builder setCreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
-        public Builder user(User user) {
+        public Builder setUser(User user) {
             this.user = user;
+            return this;
+        }
+
+        public Builder copy(UserAuth userAuth) {
+            this.authId = userAuth.authId;
+            this.setPasswordHash = userAuth.passwordHash;
+            this.salt = userAuth.salt;
+            this.createdAt = userAuth.createdAt;
+            this.user = userAuth.user;
             return this;
         }
 

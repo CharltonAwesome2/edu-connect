@@ -1,5 +1,12 @@
 package za.ac.cput.domain;
 
+/*
+    UserRole.java
+    UserRole model class
+    Author: Charlton Solomons (220483418)
+    Date: 11 March 2026
+*/
+
 public class UserRole {
 
     private Long userRoleId;
@@ -26,6 +33,11 @@ public class UserRole {
 
     public Role getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return "UserRole [userRoleId=" + userRoleId + ", user=" + user + ", role=" + role + "]";
     }
 
     public static class Builder {
