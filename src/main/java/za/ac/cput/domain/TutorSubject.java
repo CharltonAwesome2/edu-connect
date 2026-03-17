@@ -1,9 +1,10 @@
 package za.ac.cput.domain;
 
 /**
- * Esaile Siani
- * Djiakeng Franck
- * 220274142
+ * TutorSubject.java
+ * TutorSubject model class
+ * Author: Esaile Franck Siani Djiakeng (220274142)
+ * Date: 11 March 2026
  */
 
 public class TutorSubject {

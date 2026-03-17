@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import java.time.LocalDateTime;
+
 /*
  Report.java
  Report Entity
@@ -10,63 +12,95 @@ package za.ac.cput.domain;
 public class Report {
 
     private Long reportId;
-    private String reportType;
-    private String description;
-    private String dateGenerated;
+    private String reason;
+    private LocalDateTime reportDate;
+    private User reporter;
+    private User reportedUser;
 
-    private Report(){}
+    private Report() {
+    }
 
-    private Report(Builder builder){
+    private Report(Builder builder) {
         this.reportId = builder.reportId;
-        this.reportType = builder.reportType;
-        this.description = builder.description;
-        this.dateGenerated = builder.dateGenerated;
+        this.reason = builder.reason;
+        this.reportDate = builder.reportDate;
+        this.reporter = builder.reporter;
+        this.reportedUser = builder.reportedUser;
+    }
+
+    public void submitReport(){
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Report [reportId=" + reportId + ", reason=" + reason + ", reportDate=" + reportDate + ", reporter="
+                + reporter + ", reportedUser=" + reportedUser + "]";
     }
 
     public Long getReportId() {
         return reportId;
     }
 
-    public String getReportType() {
-        return reportType;
+    public String getReason() {
+        return reason;
     }
 
-    public String getDescription() {
-        return description;
+    public LocalDateTime getReportDate() {
+        return reportDate;
     }
 
-    public String getDateGenerated() {
-        return dateGenerated;
+    public User getReporter() {
+        return reporter;
+    }
+
+    public User getReportedUser() {
+        return reportedUser;
     }
 
     public static class Builder {
 
         private Long reportId;
-        private String reportType;
-        private String description;
-        private String dateGenerated;
+        private String reason;
+        private LocalDateTime reportDate;
+        private User reporter;
+        private User reportedUser;
 
-        public Builder setReportId(Long reportId){
+        public Builder setReportId(Long reportId) {
             this.reportId = reportId;
             return this;
         }
 
-        public Builder setReportType(String reportType){
-            this.reportType = reportType;
+        public Builder setReason(String reason) {
+            this.reason = reason;
             return this;
         }
 
-        public Builder setDescription(String description){
-            this.description = description;
+        public Builder setReportDate(LocalDateTime reportDate) {
+            this.reportDate = reportDate;
             return this;
         }
 
-        public Builder setDateGenerated(String dateGenerated){
-            this.dateGenerated = dateGenerated;
+        public Builder setReporter(User reporter) {
+            this.reporter = reporter;
             return this;
         }
 
-        public Report build(){
+        public Builder setReportedUser(User reportedUser) {
+            this.reportedUser = reportedUser;
+            return this;
+        }
+
+        public Builder copy(Report report){
+            this.reportId = report.reportId;
+            this.reason = report.reason;
+            this.reportDate = report.reportDate;
+            this.reporter = report.reporter;
+            this.reportedUser = report.reportedUser;
+            return this;
+        }
+
+        public Report build() {
             return new Report(this);
         }
     }

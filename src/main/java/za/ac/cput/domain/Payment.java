@@ -29,7 +29,7 @@ public class Payment {
     }
 
     //Payment processing method
-    public void paymentProcess() {
+    public void processPayment() {
 
     }
 

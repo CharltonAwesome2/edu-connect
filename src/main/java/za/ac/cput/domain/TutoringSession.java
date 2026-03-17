@@ -1,12 +1,14 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Esaile Siani
- * Djiakeng Franck
- * 220274142
+ * TutoringSession.java
+ * TutoringSession model class
+ * Author: Esaile Franck Siani Djiakeng (220274142)
+ * Date: 11 March 2026
  */
 
 public class TutoringSession {
@@ -17,25 +19,33 @@ public class TutoringSession {
     private String sessionStatus;
     private TutorProfile tutor;
     private User student;
+    private Subject subject;
     private Payment payment;
     private List<TutorReview> reviews;
 
-    private TutoringSession() {
+    public TutoringSession() {
     }
 
     //Builder Constructor would be here;
     public TutoringSession(Builder build) {
-        TutoringSession session = new TutoringSession();
-        session.sessionId = build.sessionId;
-        session.sessionStart = build.sessionStart;
-        session.sessionEnd = build.sessionEnd;
-        session.sessionStatus = build.sessionStatus;
-        session.tutor = build.tutor;
-        session.student = build.student;
-        session.payment = build.payment;
-        session.reviews = build.reviews;
+        this.sessionId = build.sessionId;
+        this.sessionStart = build.sessionStart;
+        this.sessionEnd = build.sessionEnd;
+        this.sessionStatus = build.sessionStatus;
+        this.tutor = build.tutor;
+        this.student = build.student;
+        this.subject = build.subject;
+        this.payment = build.payment;
+        this.reviews = build.reviews != null ? new ArrayList<>(build.reviews) : new ArrayList<>();
     }
 
+    public void startSession() {
+
+    }
+
+    public void endSession() {
+
+    }
 
     public Long getSessionId() {
         return sessionId;
@@ -69,18 +79,15 @@ public class TutoringSession {
         return reviews;
     }
 
+    public Subject getSubject() {
+        return subject;
+    }
+
     @Override
     public String toString() {
-        return "TutoringSession{" +
-                "sessionId=" + sessionId +
-                ", sessionStart=" + sessionStart +
-                ", sessionEnd=" + sessionEnd +
-                ", sessionStatus='" + sessionStatus + '\'' +
-                ", tutor=" + tutor +
-                ", student=" + student +
-                ", payment=" + payment +
-                ", reviews=" + reviews +
-                '}';
+        return "TutoringSession [sessionId=" + sessionId + ", sessionStart=" + sessionStart + ", sessionEnd="
+                + sessionEnd + ", sessionStatus=" + sessionStatus + ", tutor=" + tutor + ", student=" + student
+                + ", subject=" + subject + ", payment=" + payment + ", reviews=" + reviews + "]";
     }
 
     public static class Builder {
@@ -91,6 +98,7 @@ public class TutoringSession {
         private String sessionStatus;
         private TutorProfile tutor;
         private User student;
+        private Subject subject;
         private Payment payment;
         private List<TutorReview> reviews;
 
@@ -124,6 +132,11 @@ public class TutoringSession {
             return this;
         }
 
+        public Builder setSubject(Subject subject) {
+            this.subject = subject;
+            return this;
+        }
+
         public Builder setPayment(Payment payment) {
             this.payment = payment;
             return this;
@@ -141,8 +154,9 @@ public class TutoringSession {
             this.sessionStatus = session.sessionStatus;
             this.tutor = session.tutor;
             this.student = session.student;
+            this.subject = session.subject;
             this.payment = session.payment;
-            this.reviews = session.reviews;
+            this.reviews = session.reviews != null ? new ArrayList<>(session.reviews) : new ArrayList<>();
             return this;
         }
 
@@ -150,6 +164,5 @@ public class TutoringSession {
             return new TutoringSession(this);
         }
     }
-
 
 }
