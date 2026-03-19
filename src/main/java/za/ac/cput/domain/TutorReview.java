@@ -27,6 +27,7 @@ public class TutorReview {
         this.session = builder.session;
     }
 
+
     //Getters
     public Long getReviewId() {
         return reviewId;
@@ -51,6 +52,10 @@ public class TutorReview {
 
     public TutoringSession getSession() {
         return session;
+    }
+
+    public void submitReview(){
+
     }
 
     @Override

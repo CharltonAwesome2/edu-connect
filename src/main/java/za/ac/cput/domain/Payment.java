@@ -55,6 +55,10 @@ public class Payment {
         return session;
     }
 
+    public void paymentProcess() {
+
+    }
+
     @Override
     public String toString() {
         return "Payment{" +
