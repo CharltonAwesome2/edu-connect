@@ -17,22 +17,22 @@ public class TutoringSession {
     private LocalDateTime sessionStart;
     private LocalDateTime sessionEnd;
     private String sessionStatus;
-    private TutorProfile tutor;
+    private TutorProfile tutorProfile;
     private User student;
     private Subject subject;
     private Payment payment;
     private List<TutorReview> reviews;
 
-    public TutoringSession() {
+    private TutoringSession() {
     }
 
     //Builder Constructor would be here;
-    public TutoringSession(Builder build) {
+    private TutoringSession(Builder build) {
         this.sessionId = build.sessionId;
         this.sessionStart = build.sessionStart;
         this.sessionEnd = build.sessionEnd;
         this.sessionStatus = build.sessionStatus;
-        this.tutor = build.tutor;
+        this.tutorProfile = build.tutorProfile;
         this.student = build.student;
         this.subject = build.subject;
         this.payment = build.payment;
@@ -67,8 +67,8 @@ public class TutoringSession {
         return student;
     }
 
-    public TutorProfile getTutor() {
-        return tutor;
+    public TutorProfile getTutorProfile() {
+        return tutorProfile;
     }
 
     public Payment getPayment() {
@@ -86,7 +86,7 @@ public class TutoringSession {
     @Override
     public String toString() {
         return "TutoringSession [sessionId=" + sessionId + ", sessionStart=" + sessionStart + ", sessionEnd="
-                + sessionEnd + ", sessionStatus=" + sessionStatus + ", tutor=" + tutor + ", student=" + student
+                + sessionEnd + ", sessionStatus=" + sessionStatus + ", tutorProfile=" + tutorProfile + ", student=" + student
                 + ", subject=" + subject + ", payment=" + payment + ", reviews=" + reviews + "]";
     }
 
@@ -96,7 +96,7 @@ public class TutoringSession {
         private LocalDateTime sessionStart;
         private LocalDateTime sessionEnd;
         private String sessionStatus;
-        private TutorProfile tutor;
+        private TutorProfile tutorProfile;
         private User student;
         private Subject subject;
         private Payment payment;
@@ -122,8 +122,8 @@ public class TutoringSession {
             return this;
         }
 
-        public Builder setTutor(TutorProfile tutor) {
-            this.tutor = tutor;
+        public Builder setTutorProfile(TutorProfile tutorProfile) {
+            this.tutorProfile = tutorProfile;
             return this;
         }
 
@@ -152,7 +152,7 @@ public class TutoringSession {
             this.sessionStart = session.sessionStart;
             this.sessionEnd = session.sessionEnd;
             this.sessionStatus = session.sessionStatus;
-            this.tutor = session.tutor;
+            this.tutorProfile = session.tutorProfile;
             this.student = session.student;
             this.subject = session.subject;
             this.payment = session.payment;
