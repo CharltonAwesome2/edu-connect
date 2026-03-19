@@ -7,7 +7,12 @@ import za.ac.cput.util.Helper;
 import za.ac.cput.util.HelperUtil;
 
 import java.time.LocalDateTime;
-
+/*
+    PaymentFactory.java
+    Factory class for Payment domain
+    Author: Ayabonga Jervasio Yawa (221241558)
+    Date: 19 March 2026
+*/
 public class PaymentFactory {
 
     public static Payment createPayment(Long paymentID, Double amount, PaymentStatus status,
