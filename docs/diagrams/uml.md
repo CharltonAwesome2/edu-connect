@@ -21,7 +21,6 @@ class User:::lesego {
 class UserAuth:::lesego {
     Long authId
     String passwordHash
-    String salt
     LocalDateTime lastLogin
 
     User user
@@ -77,7 +76,7 @@ class BookingStatus {
     PENDING
     APPROVED
     REJECTED
-    CANCELLED
+    CANCELED
 }
 
 class BookingRequest:::reotshepile {
@@ -100,7 +99,7 @@ class SessionStatus {
     SCHEDULED
     IN_PROGRESS
     COMPLETED
-    CANCELLED
+    CANCELED
     NO_SHOW
 }
 

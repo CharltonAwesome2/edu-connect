@@ -1,47 +1,52 @@
 package za.ac.cput.domain;
 
+import za.ac.cput.enums.BookingStatus;
 // BookingRequest.java
 //Booking Request model class
 //Author:Reotshepile Stock (230875807)
 //Date:17 March 2026
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class BookingRequest {
 
     private Long tutoringSessionId;
-    private LocalDate requestedDate;
-    private String status;
+    private LocalDateTime requestedStartTime;
+    private int durationMinutes;
+    private LocalDateTime createdAt;
+    private BookingStatus status;
     private User student;
     private TutorProfile tutorProfile;
     private Subject subject;
 
     private BookingRequest(Builder builder) {
         this.tutoringSessionId = builder.tutoringSessionId;
-        this.requestedDate = builder.requestedDate;
+        this.requestedStartTime = builder.requestedStartTime;
+        this.durationMinutes = builder.durationMinutes;
+        this.createdAt = builder.createdAt;
         this.status = builder.status;
         this.student = builder.student;
         this.tutorProfile = builder.tutorProfile;
         this.subject = builder.subject;
     }
 
-    public void approveRequest(){
-
-    }
-
-    public void rejectRequest(){
-        
-    }
-
     public Long getTutoringSessionId() {
         return tutoringSessionId;
     }
 
-    public LocalDate getRequestedDate() {
-        return requestedDate;
+    public LocalDateTime getRequestedStartTime() {
+        return requestedStartTime;
     }
 
-    public String getStatus() {
+    public int getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public BookingStatus getStatus() {
         return status;
     }
 
@@ -59,21 +64,18 @@ public class BookingRequest {
 
     @Override
     public String toString() {
-        return "BookingRequest{" +
-                "tutoringSessionId=" + tutoringSessionId +
-                ", date=" + requestedDate +
-                ", status=" + status +
-                ", student=" + student +
-                ", tutorProfile=" + tutorProfile +
-                ", subject=" + subject +
-                '}';
+        return "BookingRequest [tutoringSessionId=" + tutoringSessionId + ", requestedStartTime=" + requestedStartTime
+                + ", durationMinutes=" + durationMinutes + ", createdAt=" + createdAt + ", status=" + status
+                + ", student=" + student + ", tutorProfile=" + tutorProfile + ", subject=" + subject + "]";
     }
 
     public static class Builder {
 
         private Long tutoringSessionId;
-        private LocalDate requestedDate;
-        private String status;
+        private LocalDateTime requestedStartTime;
+        private int durationMinutes;
+        private LocalDateTime createdAt;
+        private BookingStatus status;
         private User student;
         private TutorProfile tutorProfile;
         private Subject subject;
@@ -83,12 +85,17 @@ public class BookingRequest {
             return this;
         }
 
-        public Builder setRequestedDate(LocalDate requestedDate) {
-            this.requestedDate = requestedDate;
+        public Builder setRequestedStartTime(LocalDateTime requestedStartTime) {
+            this.requestedStartTime = requestedStartTime;
             return this;
         }
 
-        public Builder setStatus(String status) {
+        public Builder setDurationMinutes(int durationMinutes) {
+            this.durationMinutes = durationMinutes;
+            return this;
+        }
+
+        public Builder setStatus(BookingStatus status) {
             this.status = status;
             return this;
         }
@@ -110,7 +117,9 @@ public class BookingRequest {
 
         public Builder copy(BookingRequest bookingRequest) {
             this.tutoringSessionId = bookingRequest.tutoringSessionId;
-            this.requestedDate = bookingRequest.requestedDate;
+            this.requestedStartTime = bookingRequest.requestedStartTime;
+            this.durationMinutes = bookingRequest.durationMinutes;
+            this.createdAt = bookingRequest.createdAt;
             this.status = bookingRequest.status;
             this.student = bookingRequest.student;
             this.tutorProfile = bookingRequest.tutorProfile;

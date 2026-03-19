@@ -45,7 +45,6 @@ public class Role {
         private Long roleId;
         private String roleName;
         private String description;
-        // private List<User> users;
 
         public Builder roleId(Long roleId) {
             this.roleId = roleId;
