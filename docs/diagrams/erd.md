@@ -19,7 +19,6 @@ erDiagram
         bigint authId PK
         bigint userId FK "unique"
         string passwordHash
-        string salt
         datetime lastLogin
     }
 
@@ -119,14 +118,14 @@ erDiagram
         str PENDING
         str APPROVED
         str REJECTED
-        str CANCELLED
+        str CANCELED
     }
 
     SessionStatus {
        str SCHEDULED
        str IN_PROGRESS
        str COMPLETED
-       str CANCELLED
+       str CANCELED
        str NO_SHOW
     }
 
