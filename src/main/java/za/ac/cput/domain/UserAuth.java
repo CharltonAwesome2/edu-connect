@@ -12,28 +12,14 @@ import java.time.LocalDateTime;
 public class UserAuth {
     private long authId;
     private String passwordHash;
-    private String salt;
     private LocalDateTime createdAt;
     private User user;
 
     private UserAuth(Builder builder) {
         this.authId = builder.authId;
         this.passwordHash = builder.setPasswordHash;
-        this.salt = builder.salt;
         this.createdAt = builder.createdAt;
         this.user = builder.user;
-    }
-
-    public void login() {
-
-    }
-
-    public void logout() {
-
-    }
-
-    public void updatePassword() {
-
     }
 
     public long getAuthId() {
@@ -44,9 +30,7 @@ public class UserAuth {
         return passwordHash;
     }
 
-    public String getSalt() {
-        return salt;
-    }
+
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -59,14 +43,13 @@ public class UserAuth {
     
     @Override
     public String toString() {
-        return "UserAuth [authId=" + authId + ", passwordHash=" + passwordHash + ", salt=" + salt + ", createdAt="
+        return "UserAuth [authId=" + authId + ", passwordHash=" + passwordHash + ", createdAt="
                 + createdAt + ", user=" + user + "]";
     }
 
     public static class Builder {
         private long authId;
         private String setPasswordHash;
-        private String salt;
         private LocalDateTime createdAt;
         private User user;
 
@@ -80,10 +63,6 @@ public class UserAuth {
             return this;
         }
 
-        public Builder setSalt(String salt) {
-            this.salt = salt;
-            return this;
-        }
 
         public Builder setCreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
@@ -98,7 +77,6 @@ public class UserAuth {
         public Builder copy(UserAuth userAuth) {
             this.authId = userAuth.authId;
             this.setPasswordHash = userAuth.passwordHash;
-            this.salt = userAuth.salt;
             this.createdAt = userAuth.createdAt;
             this.user = userAuth.user;
             return this;
