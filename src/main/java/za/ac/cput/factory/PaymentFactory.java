@@ -2,44 +2,38 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.TutoringSession;
+import za.ac.cput.enums.PaymentStatus;
 import za.ac.cput.util.Helper;
+import za.ac.cput.util.HelperUtil;
 
 import java.time.LocalDateTime;
 
 public class PaymentFactory {
 
-    public static Payment createPayment(Long paymentID, Double amount, String paymentStatus,
-                                        LocalDateTime paymentDate, TutoringSession session) {
-//        if (paymentID == null ||
-//                amount == null ||
-//                amount < 0 ||
-//                paymentStatus == null ||
-//                paymentDate == null ||
-//                session == null
-//        ) {
-//            return null;
-//        }
-     if(Helper.isObjectNull(paymentID)
-     || Helper.isEmptyOrNull(paymentStatus)
-     || Helper.isObjectNull(paymentDate)
-     || Helper.isObjectNull(session)){
-         return null;
-     }
-
-     if (Helper.isObjectNull(amount)
-             || amount <= 0){
-         return null;
-     }
+    public static Payment createPayment(Long paymentID, Double amount, PaymentStatus status,
+                                        String method, LocalDateTime paidAt, TutoringSession session) {
 
 
 
+        if(HelperUtil.isObjectNull(paymentID)
+        ||HelperUtil.isObjectNull(status)
+        ||HelperUtil.isObjectNull(paidAt)
+        ||HelperUtil.isObjectNull(session)
+        )
+
+            if (Helper.isObjectNull(amount)
+                    || amount <= 0){
+                return null;
+            }
 
         return new Payment.Builder()
                 .setPaymentID(paymentID)
                 .setAmount(amount)
-                .setPaymentStatus(paymentStatus)
-                .setPaymentDate(paymentDate)
+                .setPaymentStatus(status)
+                .setPaymentMethod(method)
+                .setPaidAt(paidAt)
                 .setSession(session)
                 .build();
+
     }
 }

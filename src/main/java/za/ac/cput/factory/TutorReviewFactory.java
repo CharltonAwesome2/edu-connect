@@ -3,7 +3,9 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.TutorReview;
 import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.domain.User;
+import za.ac.cput.enums.ReviewRating;
 import za.ac.cput.util.Helper;
+import za.ac.cput.util.HelperUtil;
 
 import java.time.LocalDateTime;
 
@@ -14,32 +16,19 @@ import java.time.LocalDateTime;
     Date: 18 March 2026
 */
 public class TutorReviewFactory {
-    public static TutorReview createTutorReview(Long reviewID, Integer rating, String comment, LocalDateTime reviewDate,
+    public static TutorReview createTutorReview(Long reviewID, ReviewRating rating, String comment, LocalDateTime reviewDate,
                                                 User student, TutoringSession session) {
-//        if (reviewID == null ||
-//                rating == null ||
-//                comment == null ||
-//                reviewDate == null ||
-//                student == null ||
-//                session == null) {
-//            return null;
-//
-//
-//        }
 
-        if(Helper.isObjectNull(reviewID)
-        || Helper.isEmptyOrNull(comment)
-        || Helper.isObjectNull(student)
-        || Helper.isObjectNull(session)
-        ){
-            return null;
-        }
 
-        if(rating < 0 || rating > 5){
-            return null;
-        }
+      if(HelperUtil.isObjectNull(reviewID)
+      || HelperUtil.isObjectNull(rating)
+      || HelperUtil.isNullorEmpty(comment)
+      || HelperUtil.isObjectNull(student)
+      || HelperUtil.isObjectNull(session)){
+          return null;
+      }
 
-        if (reviewDate == null) {
+        if (HelperUtil.isObjectNull(reviewDate)) {
             reviewDate = LocalDateTime.now();
         }
 
@@ -47,7 +36,7 @@ public class TutorReviewFactory {
                 .setReviewID(reviewID)
                 .setRating(rating)
                 .setComment(comment)
-                .setReviewDate(reviewDate)
+                .setReviewedAt(reviewDate)
                 .setStudent(student)
                 .setSession(session)
                 .build();
