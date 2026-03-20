@@ -20,21 +20,21 @@ public class TutorReviewFactory {
                                                 User student, TutoringSession session) {
 
 
-      if(HelperUtil.isObjectNull(reviewID)
-      || HelperUtil.isObjectNull(rating)
-      || HelperUtil.isNullorEmpty(comment)
-      || HelperUtil.isObjectNull(student)
-      || HelperUtil.isObjectNull(session)){
-          return null;
-      }
+        if (HelperUtil.isObjectNull(reviewID)
+                || HelperUtil.isObjectNull(rating)
+                || HelperUtil.isNullorEmpty(comment)
+                || HelperUtil.isObjectNull(student)
+                || HelperUtil.isObjectNull(session)) {
+            return null;
+        }
 
         if (HelperUtil.isObjectNull(reviewDate)) {
             reviewDate = LocalDateTime.now();
         }
 
         return new TutorReview.Builder()
-                .setReviewID(reviewID)
-                .setRating(rating)
+                .setReviewedID(reviewID)
+                .setReviewRating(rating)
                 .setComment(comment)
                 .setReviewedAt(reviewDate)
                 .setStudent(student)

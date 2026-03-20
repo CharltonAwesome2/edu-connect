@@ -54,7 +54,7 @@ public class TutorReview {
         return session;
     }
 
-    public void submitReview(){
+    public void submitReview() {
 
     }
 
@@ -79,7 +79,7 @@ public class TutorReview {
         private User student;
         private TutoringSession session;
 
-        public Builder setReviewID(long reviewId) {
+        public Builder setReviewedID(Long reviewId) {
             this.reviewId = reviewId;
             return this;
         }
@@ -89,12 +89,12 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setReviewedAt(LocalDateTime reviewDate) {
-            this.reviewedAt = reviewDate;
+        public Builder setReviewedAt(LocalDateTime reviewedAt) {
+            this.reviewedAt = reviewedAt;
             return this;
         }
 
-        public Builder setRating(ReviewRating rating) {
+        public Builder setReviewRating(ReviewRating rating) {
             this.rating = rating;
             return this;
         }
