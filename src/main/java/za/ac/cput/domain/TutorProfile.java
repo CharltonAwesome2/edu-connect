@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 /**
  * TutorProfile.java
@@ -10,17 +9,15 @@ import java.util.ArrayList;
  * Date: 11 March 2026
  */
 
-
 public class TutorProfile {
 
     private Long tutorProfileId;
     private String bio;
     private int yearsExperience;
     private double hourlyRate;
-    private double rating;
+    private double averageRating;
+    private LocalDateTime createdAt;
     private User user;
-    private List<TutorSubject> subjects;
-    private List<TutoringSession> sessions;
 
     private TutorProfile() {
     }
@@ -31,18 +28,9 @@ public class TutorProfile {
         this.bio = build.bio;
         this.yearsExperience = build.yearsExperience;
         this.hourlyRate = build.hourlyRate;
-        this.rating = build.rating;
+        this.createdAt = build.createdAt;
+        this.averageRating = build.averageRating;
         this.user = build.user;
-        this.subjects = build.subjects != null ? new ArrayList<>(build.subjects) : new ArrayList<>();
-        this.sessions = build.sessions != null ? new ArrayList<>(build.sessions) : new ArrayList<>();
-    }
-
-    public void updateBio(){
-
-    }
-
-    public void updateRate(){
-        
     }
 
     public Long getTutorProfileId() {
@@ -61,20 +49,16 @@ public class TutorProfile {
         return hourlyRate;
     }
 
-    public double getRating() {
-        return rating;
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
     public User getUser() {
         return user;
-    }
-
-    public List<TutorSubject> getSubjects() {
-        return subjects;
-    }
-
-    public List<TutoringSession> getSessions() {
-        return sessions;
     }
 
     @Override
@@ -84,10 +68,9 @@ public class TutorProfile {
                 ", bio='" + bio + '\'' +
                 ", yearsExperience=" + yearsExperience +
                 ", hourlyRate=" + hourlyRate +
-                ", rating=" + rating +
+                ", averageRating=" + averageRating +
+                ", createdAt=" + createdAt +
                 ", rating=" + user +
-                ", rating=" + subjects +
-                ", rating=" + sessions +
                 '}';
     }
 
@@ -96,10 +79,9 @@ public class TutorProfile {
         private String bio;
         private int yearsExperience;
         private double hourlyRate;
-        private double rating;
+        private double averageRating;
+        private LocalDateTime createdAt;
         private User user;
-        private List<TutorSubject> subjects;
-        private List<TutoringSession> sessions;
 
         public Builder setTutorProfileId(Long tutorProfileId) {
             this.tutorProfileId = tutorProfileId;
@@ -121,23 +103,18 @@ public class TutorProfile {
             return this;
         }
 
-        public Builder setRating(double rating) {
-            this.rating = rating;
+        public Builder setAverageRating(double averageRating) {
+            this.averageRating = averageRating;
             return this;
         }
 
-        public Builder setUser(User user){
+        public Builder setCreatedAt(LocalDateTime createdAt){
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder setUser(User user) {
             this.user = user;
-            return this;
-        }
-
-        public Builder setSubjects(List<TutorSubject> subjects){
-            this.subjects = subjects;
-            return this;
-        }
-
-        public Builder setSessions(List<TutoringSession> sessions){
-            this.sessions = sessions;
             return this;
         }
 
@@ -146,10 +123,9 @@ public class TutorProfile {
             this.bio = tutorProfile.bio;
             this.yearsExperience = tutorProfile.yearsExperience;
             this.hourlyRate = tutorProfile.hourlyRate;
-            this.rating = tutorProfile.rating;
+            this.averageRating = tutorProfile.averageRating;
+            this.createdAt = tutorProfile.createdAt;
             this.user = tutorProfile.user;
-            this.subjects = tutorProfile.subjects != null ? new ArrayList<>(tutorProfile.subjects) : new ArrayList<>();
-            this.sessions = tutorProfile.sessions != null ? new ArrayList<>(tutorProfile.sessions) : new ArrayList<>();
             return this;
         }
 
@@ -158,7 +134,7 @@ public class TutorProfile {
                 throw new IllegalArgumentException(("Years of Experiment cannot be negative"));
             if (hourlyRate < 0)
                 throw new IllegalArgumentException("Hourly Rate cannot negative");
-            if (rating < 0 || rating > 0)
+            if (averageRating < 0 || averageRating > 0)
                 throw new IllegalArgumentException(("Rating must be between 0 and 5"));
             return new TutorProfile(this);
         }

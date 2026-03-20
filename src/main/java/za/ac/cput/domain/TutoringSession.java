@@ -1,8 +1,8 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
+import za.ac.cput.enums.SessionStatus;
 
 /**
  * TutoringSession.java
@@ -16,35 +16,25 @@ public class TutoringSession {
     private Long sessionId;
     private LocalDateTime sessionStart;
     private LocalDateTime sessionEnd;
-    private String sessionStatus;
-    private TutorProfile tutorProfile;
+    private LocalDateTime createdAt;
+    private SessionStatus status;
+    private TutorProfile tutor;
     private User student;
     private Subject subject;
-    private Payment payment;
-    private List<TutorReview> reviews;
 
-    private TutoringSession() {
+    public TutoringSession() {
     }
 
     //Builder Constructor would be here;
-    private TutoringSession(Builder build) {
+    public TutoringSession(Builder build) {
         this.sessionId = build.sessionId;
         this.sessionStart = build.sessionStart;
         this.sessionEnd = build.sessionEnd;
-        this.sessionStatus = build.sessionStatus;
-        this.tutorProfile = build.tutorProfile;
+        this.createdAt = build.createdAt;
+        this.status = build.status;
+        this.tutor = build.tutor;
         this.student = build.student;
         this.subject = build.subject;
-        this.payment = build.payment;
-        this.reviews = build.reviews != null ? new ArrayList<>(build.reviews) : new ArrayList<>();
-    }
-
-    public void startSession() {
-
-    }
-
-    public void endSession() {
-
     }
 
     public Long getSessionId() {
@@ -59,24 +49,20 @@ public class TutoringSession {
         return sessionEnd;
     }
 
-    public String getSessionStatus() {
-        return sessionStatus;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public SessionStatus getStatus() {
+        return status;
     }
 
     public User getStudent() {
         return student;
     }
 
-    public TutorProfile getTutorProfile() {
-        return tutorProfile;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public List<TutorReview> getReviews() {
-        return reviews;
+    public TutorProfile getTutor() {
+        return tutor;
     }
 
     public Subject getSubject() {
@@ -86,8 +72,8 @@ public class TutoringSession {
     @Override
     public String toString() {
         return "TutoringSession [sessionId=" + sessionId + ", sessionStart=" + sessionStart + ", sessionEnd="
-                + sessionEnd + ", sessionStatus=" + sessionStatus + ", tutorProfile=" + tutorProfile + ", student=" + student
-                + ", subject=" + subject + ", payment=" + payment + ", reviews=" + reviews + "]";
+                + sessionEnd + ", createdAt=" + createdAt + ", status=" + status + ", tutor=" + tutor + ", student="
+                + student + ", subject=" + subject + "]";
     }
 
     public static class Builder {
@@ -95,12 +81,11 @@ public class TutoringSession {
         private Long sessionId;
         private LocalDateTime sessionStart;
         private LocalDateTime sessionEnd;
-        private String sessionStatus;
-        private TutorProfile tutorProfile;
+        private LocalDateTime createdAt;
+        private SessionStatus status;
+        private TutorProfile tutor;
         private User student;
         private Subject subject;
-        private Payment payment;
-        private List<TutorReview> reviews;
 
         public Builder setSessionId(Long sessionId) {
             this.sessionId = sessionId;
@@ -117,13 +102,18 @@ public class TutoringSession {
             return this;
         }
 
-        public Builder setSessionStatus(String sessionStatus) {
-            this.sessionStatus = sessionStatus;
+        public Builder setCreatedAt(LocalDateTime createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
 
-        public Builder setTutorProfile(TutorProfile tutorProfile) {
-            this.tutorProfile = tutorProfile;
+        public Builder setSessionStatus(SessionStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder setTutor(TutorProfile tutor) {
+            this.tutor = tutor;
             return this;
         }
 
@@ -137,26 +127,20 @@ public class TutoringSession {
             return this;
         }
 
-        public Builder setPayment(Payment payment) {
-            this.payment = payment;
-            return this;
-        }
-
-        public Builder setTutorReview(List<TutorReview> reviews) {
-            this.reviews = reviews;
-            return this;
-        }
+        // public Builder setPayment(Payment payment) {
+        //     this.payment = payment;
+        //     return this;
+        // }
 
         public Builder copy(TutoringSession session) {
             this.sessionId = session.sessionId;
             this.sessionStart = session.sessionStart;
             this.sessionEnd = session.sessionEnd;
-            this.sessionStatus = session.sessionStatus;
-            this.tutorProfile = session.tutorProfile;
+            this.createdAt = session.createdAt;
+            this.tutor = session.tutor;
+            this.status = session.status;
             this.student = session.student;
             this.subject = session.subject;
-            this.payment = session.payment;
-            this.reviews = session.reviews != null ? new ArrayList<>(session.reviews) : new ArrayList<>();
             return this;
         }
 

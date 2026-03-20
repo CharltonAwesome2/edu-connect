@@ -28,10 +28,6 @@ public class Notification {
         this.user = builder.user;
     }
 
-    public void markAsRead(){
-        
-    }
-
     @Override
     public String toString() {
         return "Notification [notificationId=" + notificationId + ", message=" + message + ", isRead=" + isRead
