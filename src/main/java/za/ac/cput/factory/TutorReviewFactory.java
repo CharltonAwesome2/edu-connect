@@ -34,7 +34,7 @@ public class TutorReviewFactory {
 
         return new TutorReview.Builder()
                 .setReviewedID(reviewID)
-                .setReviewRating(rating)
+                .setRating(rating)
                 .setComment(comment)
                 .setReviewedAt(reviewDate)
                 .setStudent(student)

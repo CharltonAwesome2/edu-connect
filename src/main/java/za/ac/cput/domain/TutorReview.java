@@ -94,7 +94,7 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setReviewRating(ReviewRating rating) {
+        public Builder setRating(ReviewRating rating) {
             this.rating = rating;
             return this;
         }
