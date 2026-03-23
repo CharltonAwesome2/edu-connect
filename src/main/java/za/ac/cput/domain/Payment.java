@@ -55,17 +55,13 @@ public class Payment {
         return session;
     }
 
-    public void paymentProcess() {
-
-    }
-
     @Override
     public String toString() {
         return "Payment{" +
                 "paymentID=" + paymentID +
                 ", amount=" + amount +
-                ", paidAt=" + paidAt +
-                ", paymentMethod='" + paymentMethod + '\'' +
+                ", paidAt='" + paidAt + '\'' +
+                ", paymentStatus='" + paymentMethod + '\'' +
                 ", status=" + status +
                 ", session=" + session +
                 '}';

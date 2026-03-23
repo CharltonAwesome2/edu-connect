@@ -27,7 +27,6 @@ public class TutorReview {
         this.session = builder.session;
     }
 
-
     //Getters
     public Long getReviewId() {
         return reviewId;
@@ -54,20 +53,10 @@ public class TutorReview {
         return session;
     }
 
-    public void submitReview() {
-
-    }
-
     @Override
     public String toString() {
-        return "TutorReview{" +
-                "reviewId=" + reviewId +
-                ", comment='" + comment + '\'' +
-                ", reviewedAt=" + reviewedAt +
-                ", rating=" + rating +
-                ", student=" + student +
-                ", session=" + session +
-                '}';
+        return "TutorReview [reviewId=" + reviewId + ", comment=" + comment + ", reviewedAt=" + reviewedAt + ", rating="
+                + rating + ", student=" + student + ", session=" + session + "]";
     }
 
     //Builder Class
@@ -79,7 +68,7 @@ public class TutorReview {
         private User student;
         private TutoringSession session;
 
-        public Builder setReviewedID(Long reviewId) {
+        public Builder setReviewID(long reviewId) {
             this.reviewId = reviewId;
             return this;
         }
@@ -89,8 +78,8 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setReviewedAt(LocalDateTime reviewedAt) {
-            this.reviewedAt = reviewedAt;
+        public Builder setReviewedAt(LocalDateTime reviewDate) {
+            this.reviewedAt = reviewDate;
             return this;
         }
 

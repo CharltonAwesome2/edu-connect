@@ -10,12 +10,9 @@ public class HelperUtil {
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public static boolean isNullorEmpty(String inputString) {
-        return inputString == null || inputString.isEmpty();
+        return inputString != null && !inputString.isEmpty();
     }
 
-    public static boolean isObjectNull(Object obj) {
-        return obj == null;
-    }
     public static boolean isValidEmail(String inputEmail) {
         EmailValidator emailValidator = EmailValidator.getInstance();
 
