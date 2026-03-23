@@ -6,22 +6,21 @@
     */
 package za.ac.cput.factory;
 
+import java.time.LocalDateTime;
 import za.ac.cput.domain.Notification;
+import za.ac.cput.domain.User;
 import za.ac.cput.util.HelperUtil;
 
 public class NotificationFactory {
 
     public static Notification createNotification(String message,
-                                                  String date,
-                                                  Long userId) {
+            boolean isRead,
+            LocalDateTime createdAt,
+            User user) {
 
-        if (message == null || message.isEmpty())
-            return null;
-
-        if (date == null || date.isEmpty())
-            return null;
-
-        if (userId == null)
+        if (HelperUtil.isNullorEmpty(message)
+                || createdAt == null 
+                || user == null)
             return null;
 
         Long notificationId = HelperUtil.generateId();
@@ -29,8 +28,9 @@ public class NotificationFactory {
         return new Notification.Builder()
                 .setNotificationId(notificationId)
                 .setMessage(message)
-                .setDate(date)
-                .setUserId(userId)
+                .setRead(isRead)
+                .setCreatedAt(createdAt)
+                .setUser(user)
                 .build();
     }
 }
