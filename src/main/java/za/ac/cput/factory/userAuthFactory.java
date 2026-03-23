@@ -25,10 +25,12 @@ public class userAuthFactory {
         }
 
         String hashedPassword = HelperUtil.hashPassword(password);
+        String salt = HelperUtil.extractSalt(hashedPassword);
 
         return new UserAuth.Builder()
                 .setAuthId(HelperUtil.generateId())
                 .passwordHash(hashedPassword)
+                .setSalt(salt)
                 .setCreatedAt(LocalDateTime.now())
                 .setUser(user)
                 .build();
