@@ -4,7 +4,6 @@ import za.ac.cput.domain.TutorReview;
 import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.domain.User;
 import za.ac.cput.enums.ReviewRating;
-import za.ac.cput.util.Helper;
 import za.ac.cput.util.HelperUtil;
 
 import java.time.LocalDateTime;
@@ -16,24 +15,23 @@ import java.time.LocalDateTime;
     Date: 19 March 2026
 */
 public class TutorReviewFactory {
-    public static TutorReview createTutorReview(Long reviewID, ReviewRating rating, String comment, LocalDateTime reviewDate,
+    public static TutorReview createTutorReview(ReviewRating rating, String comment, LocalDateTime reviewDate,
                                                 User student, TutoringSession session) {
 
+        Long reviewID = HelperUtil.generateId();
 
-        if (HelperUtil.isObjectNull(reviewID)
-                || HelperUtil.isObjectNull(rating)
-                || HelperUtil.isNullorEmpty(comment)
-                || HelperUtil.isObjectNull(student)
-                || HelperUtil.isObjectNull(session)) {
+        if (rating == null
+                || comment== null
+                || student == null
+                || session == null) {
             return null;
         }
-
-        if (HelperUtil.isObjectNull(reviewDate)) {
+        if (reviewDate == null) {
             reviewDate = LocalDateTime.now();
         }
 
         return new TutorReview.Builder()
-                .setReviewedID(reviewID)
+
                 .setRating(rating)
                 .setComment(comment)
                 .setReviewedAt(reviewDate)

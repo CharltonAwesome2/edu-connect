@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
-
 import za.ac.cput.enums.PaymentStatus;
 
 /* Payment.java
@@ -17,8 +16,7 @@ public class Payment {
     private String paymentMethod;
     private PaymentStatus status;
     private TutoringSession session;
-    //private Long sessionID
-    //private Long finalAmount;
+
 
     //Constructor
     private Payment(Builder builder) {
@@ -55,9 +53,7 @@ public class Payment {
         return session;
     }
 
-    public void paymentProcess() {
 
-    }
 
     @Override
     public String toString() {

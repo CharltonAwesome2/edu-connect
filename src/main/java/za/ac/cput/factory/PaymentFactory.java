@@ -3,9 +3,7 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.enums.PaymentStatus;
-import za.ac.cput.util.Helper;
 import za.ac.cput.util.HelperUtil;
-
 import java.time.LocalDateTime;
 
 /*
@@ -16,16 +14,16 @@ import java.time.LocalDateTime;
 */
 public class PaymentFactory {
 
-    public static Payment createPayment(Long paymentID, Double amount, PaymentStatus status,
+    public static Payment createPayment( Double amount, PaymentStatus status,
                                         String method, LocalDateTime paidAt, TutoringSession session) {
 
-        if (HelperUtil.isObjectNull(paymentID)
-                || HelperUtil.isObjectNull(status)
-                || HelperUtil.isObjectNull(paidAt)
-                || HelperUtil.isObjectNull(session)
-        )
+        Long paymentID = HelperUtil.generateId();
 
-            if (Helper.isObjectNull(amount)
+            if (HelperUtil.isNullorEmpty(String.valueOf(status))
+                    || paidAt == null
+                    || method == null
+                    || session == null
+                    ||amount == null
                     || amount <= 0) {
                 return null;
             }

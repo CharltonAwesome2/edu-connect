@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
-
 import za.ac.cput.enums.ReviewRating;
 
 /* TutorReview.java
@@ -54,9 +53,6 @@ public class TutorReview {
         return session;
     }
 
-    public void submitReview() {
-
-    }
 
     @Override
     public String toString() {
@@ -79,7 +75,7 @@ public class TutorReview {
         private User student;
         private TutoringSession session;
 
-        public Builder setReviewedID(Long reviewId) {
+        public Builder setReviewID(Long reviewId) {
             this.reviewId = reviewId;
             return this;
         }
