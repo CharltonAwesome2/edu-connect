@@ -1,8 +1,6 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * User.java
@@ -19,9 +17,6 @@ public class User {
     private String email;
     private String contactNumber;
     private LocalDateTime createdAt;
-    private List<UserRole> roles;
-    private List<Notification> notifications;
-    private List<Report> reportsFiled;
 
     private User(Builder builder) {
         this.userId = builder.userId;
@@ -31,17 +26,6 @@ public class User {
         this.email = builder.email;
         this.contactNumber = builder.contactNumber;
         this.createdAt = builder.createdAt;
-        this.roles = builder.roles != null ? new ArrayList<>(builder.roles) : new ArrayList<>();
-        this.notifications = builder.notifications != null ? new ArrayList<>(builder.notifications) : new ArrayList<>();
-        this.reportsFiled = builder.reportsFiled != null ? new ArrayList<>(builder.reportsFiled) : new ArrayList<>();
-    }
-
-    public void register(){
-
-    }
-
-    public void updateProfile(){
-        
     }
 
     public long getUserId() {
@@ -72,23 +56,11 @@ public class User {
         return createdAt;
     }
 
-    public List<UserRole> getRoles() {
-        return roles;
-    }
-
-    public List<Notification> getNotifications() {
-        return notifications;
-    }
-
-    public List<Report> getReportsFiled() {
-        return reportsFiled;
-    }
 
     @Override
     public String toString() {
         return "User [userId=" + userId + ", name=" + name + ", surname=" + surname + ", studentNumber=" + studentNumber
-                + ", email=" + email + ", contactNumber=" + contactNumber + ", createdAt=" + createdAt + ", roles="
-                + roles + ", notifications=" + notifications + ", reportsFiled=" + reportsFiled + "]";
+                + ", email=" + email + ", contactNumber=" + contactNumber + ", createdAt=" + createdAt + "]";
     }
 
     public static class Builder {
@@ -99,9 +71,6 @@ public class User {
         private String email;
         private String contactNumber;
         private LocalDateTime createdAt;
-        private List<UserRole> roles;
-        private List<Notification> notifications;
-        private List<Report> reportsFiled;
 
         public Builder setUserId(long userId) {
             this.userId = userId;
@@ -138,23 +107,6 @@ public class User {
             return this;
         }
 
-        //waiting for other classes to be implemented before adding these
-
-        public Builder setRoles(List<UserRole> roles) {
-            this.roles = roles;
-            return this;
-        }
-
-        public Builder setNotifications(List<Notification> notifications) {
-            this.notifications = notifications;
-            return this;
-        }
-
-        public Builder setReportsFiled(List<Report> reportsFiled) {
-            this.reportsFiled = reportsFiled;
-            return this;
-        }
-
         public Builder copy(User user) {
             this.userId = user.userId;
             this.name = user.name;
@@ -163,9 +115,6 @@ public class User {
             this.email = user.email;
             this.contactNumber = user.contactNumber;
             this.createdAt = user.createdAt;
-            this.roles = user.roles != null ? new ArrayList<>(user.roles) : new ArrayList<>();
-            this.notifications = user.notifications != null ? new ArrayList<>(user.notifications) : new ArrayList<>();
-            this.reportsFiled = user.reportsFiled != null ? new ArrayList<>(user.reportsFiled) : new ArrayList<>();
             return this;
         }
 

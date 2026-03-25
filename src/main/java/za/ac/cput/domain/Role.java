@@ -45,19 +45,18 @@ public class Role {
         private Long roleId;
         private String roleName;
         private String description;
-        // private List<User> users;
 
-        public Builder roleId(Long roleId) {
+        public Builder setRoleId(Long roleId) {
             this.roleId = roleId;
             return this;
         }
 
-        public Builder roleName(String roleName) {
+        public Builder setRoleName(String roleName) {
             this.roleName = roleName;
             return this;
         }
 
-        public Builder description(String description) {
+        public Builder setDescription(String description) {
             this.description = description;
             return this;
         }

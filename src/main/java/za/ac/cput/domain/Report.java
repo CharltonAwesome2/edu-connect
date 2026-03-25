@@ -28,10 +28,6 @@ public class Report {
         this.reportedUser = builder.reportedUser;
     }
 
-    public void submitReport(){
-        
-    }
-
     @Override
     public String toString() {
         return "Report [reportId=" + reportId + ", reason=" + reason + ", reportDate=" + reportDate + ", reporter="
