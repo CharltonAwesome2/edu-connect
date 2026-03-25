@@ -1,12 +1,10 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.TutorProfile;
-import za.ac.cput.domain.TutorSubject;
-import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.domain.User;
 import za.ac.cput.util.HelperUtil;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 /**
  * TutorProfile.java
@@ -18,19 +16,19 @@ import java.util.List;
 public class TutorProfileFactory {
     //Declaration of the TutorProfile Object
     public static TutorProfile createTutorProfile(String bio,
-                                                  int yearsExperience,
-                                                  double hourlyRate,
-                                                  double rating,
-                                                  User user,
-                                                  List<TutorSubject> subjects,
-                                                  List<TutoringSession> sessions){
+            int yearsExperience,
+            double hourlyRate,
+            double averageRating,
+            LocalDateTime createdAt,
+            User user) {
         Long tutorProfileId = HelperUtil.generateId();
         //Validation
-        if(HelperUtil.isNullOrEmpty(bio) ||
-           !HelperUtil.isValidHourlyRate(hourlyRate) ||
-           !HelperUtil.isValidYearsOfExperience(yearsExperience) ||
-           !HelperUtil.isValidUser(user) ||
-           !HelperUtil.isValidRating(rating)){
+        if (HelperUtil.isNullOrEmpty(bio) ||
+                !HelperUtil.isZeroOrPositiveInteger(yearsExperience) ||
+                !HelperUtil.isPositiveDouble(hourlyRate) ||
+                !HelperUtil.isValidRating(averageRating)
+                || user == null) {
+            // LocalDateTime does not need to be validated
             return null;
         }
         //Returning the new Tutoring Profile Object after Validation
@@ -39,10 +37,9 @@ public class TutorProfileFactory {
                 .setBio(bio)
                 .setYearsExperience(yearsExperience)
                 .setHourlyRate(hourlyRate)
-                .setRating(rating)
+                .setAverageRating(averageRating)
+                .setCreatedAt(createdAt)
                 .setUser(user)
-                .setSubjects(subjects != null ? subjects : List.of())
-                .setSessions(sessions != null ? sessions : List.of())
                 .build();
     }
 }

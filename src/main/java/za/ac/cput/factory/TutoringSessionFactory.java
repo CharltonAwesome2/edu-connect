@@ -1,10 +1,10 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.*;
+import za.ac.cput.enums.SessionStatus;
 import za.ac.cput.util.HelperUtil;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * TutoringSession.java
@@ -16,22 +16,22 @@ import java.util.List;
 public class TutoringSessionFactory {
     //Declaration of the TutorSession Object
     public static TutoringSession createTutorSession(LocalDateTime sessionStart,
-                                                     LocalDateTime sessionEnd,
-                                                     String sessionStatus,
-                                                     TutorProfile tutorProfile,
-                                                     User student,
-                                                     Subject subject,
-                                                     Payment payment,
-                                                     List<TutorReview> reviews) {
+            LocalDateTime sessionEnd,
+            LocalDateTime createdAt,
+            SessionStatus sessionStatus,
+            TutorProfile tutor,
+            User student,
+            Subject subject) {
         Long sessionId = HelperUtil.generateId();
 
         //Validation
-        if (HelperUtil.isInvalidInput(sessionStart,
-                                    sessionEnd,
-                                    sessionStatus,
-                                    tutorProfile,
-                                    student,
-                                    subject)) {
+        if (sessionStatus == null ||
+                tutor == null ||
+                student == null ||
+                subject == null
+
+        ) {
+
             return null;
         }
         //Returning the new Tutoring Session Object after Validation
@@ -39,12 +39,11 @@ public class TutoringSessionFactory {
                 .setSessionId(sessionId)
                 .setSessionStart(sessionStart)
                 .setSessionEnd(sessionEnd)
+                .setCreatedAt(createdAt)
                 .setSessionStatus(sessionStatus)
-                .setTutorProfile(tutorProfile)
+                .setTutor(tutor)
                 .setStudent(student)
                 .setSubject(subject)
-                .setPayment(payment)
-                .setTutorReview(reviews != null ? reviews : List.of())
                 .build();
 
     }

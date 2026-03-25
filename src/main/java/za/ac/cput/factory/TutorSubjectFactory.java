@@ -16,12 +16,12 @@ public class TutorSubjectFactory {
 
     //Declaration of the TutorSubject Object
     public static TutorSubject createTutorSubject(TutorProfile tutorProfile,
-                                                  Subject subject){
+            Subject subject) {
         //
         Long tutorSubjectId = HelperUtil.generateId();
 
         //Validation
-        if(HelperUtil.isInvalidTutorSubject(tutorProfile, subject)){
+        if (tutorProfile == null || subject == null) {
             return null;
         }
         //Returning the new Tutoring Subject Object after Validation
