@@ -18,8 +18,8 @@ public class TutoringSession {
     private LocalDateTime sessionEnd;
     private LocalDateTime createdAt;
     private SessionStatus status;
-    private TutorProfile tutor;
-    private User student;
+    private TutorProfile tutorProfile;
+    private User user;
     private Subject subject;
 
     public TutoringSession() {
@@ -32,8 +32,8 @@ public class TutoringSession {
         this.sessionEnd = build.sessionEnd;
         this.createdAt = build.createdAt;
         this.status = build.status;
-        this.tutor = build.tutor;
-        this.student = build.student;
+        this.tutorProfile = build.tutorProfile;
+        this.user = build.user;
         this.subject = build.subject;
     }
 
@@ -57,12 +57,12 @@ public class TutoringSession {
         return status;
     }
 
-    public User getStudent() {
-        return student;
+    public User getUser() {
+        return user;
     }
 
-    public TutorProfile getTutor() {
-        return tutor;
+    public TutorProfile getTutorProfile() {
+        return tutorProfile;
     }
 
     public Subject getSubject() {
@@ -72,8 +72,8 @@ public class TutoringSession {
     @Override
     public String toString() {
         return "TutoringSession [sessionId=" + sessionId + ", sessionStart=" + sessionStart + ", sessionEnd="
-                + sessionEnd + ", createdAt=" + createdAt + ", status=" + status + ", tutor=" + tutor + ", student="
-                + student + ", subject=" + subject + "]";
+                + sessionEnd + ", createdAt=" + createdAt + ", status=" + status + ", tutorProfile=" + tutorProfile + ", user="
+                + user + ", subject=" + subject + "]";
     }
 
     public static class Builder {
@@ -83,8 +83,8 @@ public class TutoringSession {
         private LocalDateTime sessionEnd;
         private LocalDateTime createdAt;
         private SessionStatus status;
-        private TutorProfile tutor;
-        private User student;
+        private TutorProfile tutorProfile;
+        private User user;
         private Subject subject;
 
         public Builder setSessionId(Long sessionId) {
@@ -112,13 +112,13 @@ public class TutoringSession {
             return this;
         }
 
-        public Builder setTutor(TutorProfile tutor) {
-            this.tutor = tutor;
+        public Builder setTutorProfile(TutorProfile tutor) {
+            this.tutorProfile = tutor;
             return this;
         }
 
-        public Builder setStudent(User student) {
-            this.student = student;
+        public Builder setUser(User tutorProfile) {
+            this.user = tutorProfile;
             return this;
         }
 
@@ -137,9 +137,9 @@ public class TutoringSession {
             this.sessionStart = session.sessionStart;
             this.sessionEnd = session.sessionEnd;
             this.createdAt = session.createdAt;
-            this.tutor = session.tutor;
+            this.tutorProfile = session.tutorProfile;
             this.status = session.status;
-            this.student = session.student;
+            this.user = session.user;
             this.subject = session.subject;
             return this;
         }
