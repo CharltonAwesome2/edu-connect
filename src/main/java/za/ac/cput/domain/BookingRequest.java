@@ -95,6 +95,11 @@ public class BookingRequest {
             return this;
         }
 
+        public Builder setCreatedAt(LocalDateTime createdAt){
+            this.createdAt = createdAt;
+            return this;
+        }
+
         public Builder setStatus(BookingStatus status) {
             this.status = status;
             return this;
