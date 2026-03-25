@@ -13,7 +13,7 @@ public class TutorReview {
     private String comment;
     private LocalDateTime reviewedAt;
     private ReviewRating rating;
-    private User student;
+    private User user;
     private TutoringSession session;
     //private Long sessionID
 
@@ -22,7 +22,7 @@ public class TutorReview {
         this.rating = builder.rating;
         this.comment = builder.comment;
         this.reviewedAt = builder.reviewedAt;
-        this.student = builder.student;
+        this.user = builder.user;
         this.session = builder.session;
     }
 
@@ -44,8 +44,8 @@ public class TutorReview {
         return reviewedAt;
     }
 
-    public User getStudent() {
-        return student;
+    public User getUser() {
+        return user;
 
     }
 
@@ -56,14 +56,8 @@ public class TutorReview {
 
     @Override
     public String toString() {
-        return "TutorReview{" +
-                "reviewId=" + reviewId +
-                ", comment='" + comment + '\'' +
-                ", reviewedAt=" + reviewedAt +
-                ", rating=" + rating +
-                ", student=" + student +
-                ", session=" + session +
-                '}';
+        return "TutorReview [reviewId=" + reviewId + ", comment=" + comment + ", reviewedAt=" + reviewedAt + ", rating="
+                + rating + ", user=" + user + ", session=" + session + "]";
     }
 
     //Builder Class
@@ -72,7 +66,7 @@ public class TutorReview {
         private String comment;
         private LocalDateTime reviewedAt;
         private ReviewRating rating;
-        private User student;
+        private User user;
         private TutoringSession session;
 
         public Builder setReviewID(Long reviewId) {
@@ -95,8 +89,8 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setStudent(User student) {
-            this.student = student;
+        public Builder setUser(User user) {
+            this.user = user;
             return this;
 
         }
@@ -112,7 +106,7 @@ public class TutorReview {
             this.comment = review.comment;
             this.reviewedAt = review.reviewedAt;
             this.rating = review.rating;
-            this.student = review.student;
+            this.user = review.user;
             this.session = review.session;
             return this;
         }

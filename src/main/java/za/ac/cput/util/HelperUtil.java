@@ -2,14 +2,13 @@ package za.ac.cput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import java.util.UUID;
 
 public class HelperUtil {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public static boolean isNullorEmpty(String inputString) {
+    public static boolean isNullOrEmpty(String inputString) {
         return inputString != null && !inputString.isEmpty();
     }
     public static boolean isValidEmail(String inputEmail) {
@@ -21,6 +20,18 @@ public class HelperUtil {
     public static Long generateId() {
         // return UUID.randomUUID();
         return Math.abs(UUID.randomUUID().getMostSignificantBits());
+    }
+
+    public static boolean isPositiveDouble(double inputDouble) {
+        return inputDouble > 0;
+    }
+
+    public static boolean isZeroOrPositiveInteger(int inputInteger) {
+        return inputInteger >= 0;
+    }
+
+    public static boolean isValidRating(double rating) {
+        return rating >= 0 & rating <= 5;
     }
 
     public static String hashPassword(String password) {
