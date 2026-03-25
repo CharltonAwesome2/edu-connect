@@ -18,7 +18,7 @@ public class SubjectFactory {
 
         String subjectId = UUID.randomUUID().toString();
 
-        if (HelperUtil.isNullorEmpty(subjectName)) {
+        if (HelperUtil.isNullOrEmpty(subjectName)) {
             return null;
         }
 

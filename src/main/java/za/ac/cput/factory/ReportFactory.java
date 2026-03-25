@@ -19,7 +19,7 @@ public class ReportFactory {
             User reporter,
             User reportedUser) {
 
-        if (HelperUtil.isNullorEmpty(reason)
+        if (HelperUtil.isNullOrEmpty(reason)
                 || reportDate == null
                 || reporter == null
                 || reportedUser == null) {

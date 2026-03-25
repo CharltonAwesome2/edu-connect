@@ -15,7 +15,7 @@ public class RoleFactory {
     public static Role createRole(String roleName, String description) {
         Long roleId = HelperUtil.generateId();
 
-        if (HelperUtil.isNullorEmpty(roleName) || HelperUtil.isNullorEmpty(roleName)) {
+        if (HelperUtil.isNullOrEmpty(roleName) || HelperUtil.isNullOrEmpty(roleName)) {
             return null;
         }
 

@@ -16,8 +16,8 @@ public class userFactory {
     public static User createUser(String name, String surname, String studentNumber, 
                                   String email, String contactNumber) {
         
-        if (!HelperUtil.isNullorEmpty(name) || !HelperUtil.isNullorEmpty(surname) || 
-            !HelperUtil.isNullorEmpty(studentNumber)) {
+        if (!HelperUtil.isNullOrEmpty(name) || !HelperUtil.isNullOrEmpty(surname) || 
+            !HelperUtil.isNullOrEmpty(studentNumber)) {
             return null;
         }
 
