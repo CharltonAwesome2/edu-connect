@@ -15,7 +15,7 @@ public class BookingRequest {
     private int durationMinutes;
     private LocalDateTime createdAt;
     private BookingStatus status;
-    private User student;
+    private User user;
     private TutorProfile tutorProfile;
     private Subject subject;
 
@@ -25,7 +25,7 @@ public class BookingRequest {
         this.durationMinutes = builder.durationMinutes;
         this.createdAt = builder.createdAt;
         this.status = builder.status;
-        this.student = builder.student;
+        this.user = builder.user;
         this.tutorProfile = builder.tutorProfile;
         this.subject = builder.subject;
     }
@@ -50,8 +50,8 @@ public class BookingRequest {
         return status;
     }
 
-    public User getStudent() {
-        return student;
+    public User getUser() {
+        return user;
     }
 
     public TutorProfile getTutorProfile() {
@@ -66,7 +66,7 @@ public class BookingRequest {
     public String toString() {
         return "BookingRequest [tutoringSessionId=" + tutoringSessionId + ", requestedStartTime=" + requestedStartTime
                 + ", durationMinutes=" + durationMinutes + ", createdAt=" + createdAt + ", status=" + status
-                + ", student=" + student + ", tutorProfile=" + tutorProfile + ", subject=" + subject + "]";
+                + ", user=" + user + ", tutorProfile=" + tutorProfile + ", subject=" + subject + "]";
     }
 
     public static class Builder {
@@ -76,7 +76,7 @@ public class BookingRequest {
         private int durationMinutes;
         private LocalDateTime createdAt;
         private BookingStatus status;
-        private User student;
+        private User user;
         private TutorProfile tutorProfile;
         private Subject subject;
 
@@ -105,8 +105,8 @@ public class BookingRequest {
             return this;
         }
 
-        public Builder setStudent(User student) {
-            this.student = student;
+        public Builder setUser(User user) {
+            this.user = user;
             return this;
         }
 
@@ -126,7 +126,7 @@ public class BookingRequest {
             this.durationMinutes = bookingRequest.durationMinutes;
             this.createdAt = bookingRequest.createdAt;
             this.status = bookingRequest.status;
-            this.student = bookingRequest.student;
+            this.user = bookingRequest.user;
             this.tutorProfile = bookingRequest.tutorProfile;
             this.subject = bookingRequest.subject;
             return this;

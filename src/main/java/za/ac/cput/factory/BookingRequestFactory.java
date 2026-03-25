@@ -40,7 +40,7 @@ public class BookingRequestFactory {
                 .setDurationMinutes(durationMinutes)
                 .setCreatedAt(createdAt)
                 .setStatus(status)
-                .setStudent(student)
+                .setUser(student)
                 .setTutorProfile(tutorProfile)
                 .setSubject(subject)
                 .build();

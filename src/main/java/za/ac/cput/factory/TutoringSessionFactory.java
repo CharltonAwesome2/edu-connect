@@ -19,15 +19,15 @@ public class TutoringSessionFactory {
             LocalDateTime sessionEnd,
             LocalDateTime createdAt,
             SessionStatus sessionStatus,
-            TutorProfile tutor,
-            User student,
+            TutorProfile tutorProfile,
+            User user,
             Subject subject) {
         Long sessionId = HelperUtil.generateId();
 
         //Validation
         if (sessionStatus == null ||
-                tutor == null ||
-                student == null ||
+                tutorProfile == null ||
+                user == null ||
                 subject == null
 
         ) {
@@ -41,8 +41,8 @@ public class TutoringSessionFactory {
                 .setSessionEnd(sessionEnd)
                 .setCreatedAt(createdAt)
                 .setSessionStatus(sessionStatus)
-                .setTutor(tutor)
-                .setStudent(student)
+                .setTutorProfile(tutorProfile)
+                .setUser(user)
                 .setSubject(subject)
                 .build();
 
