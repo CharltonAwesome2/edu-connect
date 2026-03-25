@@ -31,11 +31,11 @@ public class TutorReviewFactory {
         }
 
         return new TutorReview.Builder()
-
+                .setReviewID(reviewID)
                 .setRating(rating)
                 .setComment(comment)
                 .setReviewedAt(reviewDate)
-                .setStudent(student)
+                .setUser(student)
                 .setSession(session)
                 .build();
     }

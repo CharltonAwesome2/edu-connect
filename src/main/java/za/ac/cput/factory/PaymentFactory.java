@@ -19,7 +19,7 @@ public class PaymentFactory {
 
         Long paymentID = HelperUtil.generateId();
 
-            if (HelperUtil.isNullorEmpty(String.valueOf(status))
+            if (HelperUtil.isNullOrEmpty(String.valueOf(status))
                     || paidAt == null
                     || method == null
                     || session == null

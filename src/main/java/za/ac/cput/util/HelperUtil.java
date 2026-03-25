@@ -11,6 +11,7 @@ public class HelperUtil {
     public static boolean isNullOrEmpty(String inputString) {
         return inputString != null && !inputString.isEmpty();
     }
+
     public static boolean isValidEmail(String inputEmail) {
         EmailValidator emailValidator = EmailValidator.getInstance();
 

@@ -1,6 +1,7 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDateTime;
+
 import za.ac.cput.enums.ReviewRating;
 
 /* TutorReview.java
@@ -25,7 +26,6 @@ public class TutorReview {
         this.user = builder.user;
         this.session = builder.session;
     }
-
 
     //Getters
     public Long getReviewId() {
@@ -53,7 +53,6 @@ public class TutorReview {
         return session;
     }
 
-
     @Override
     public String toString() {
         return "TutorReview [reviewId=" + reviewId + ", comment=" + comment + ", reviewedAt=" + reviewedAt + ", rating="
@@ -69,7 +68,7 @@ public class TutorReview {
         private User user;
         private TutoringSession session;
 
-        public Builder setReviewID(Long reviewId) {
+        public Builder setReviewID(long reviewId) {
             this.reviewId = reviewId;
             return this;
         }
@@ -79,8 +78,8 @@ public class TutorReview {
             return this;
         }
 
-        public Builder setReviewedAt(LocalDateTime reviewedAt) {
-            this.reviewedAt = reviewedAt;
+        public Builder setReviewedAt(LocalDateTime reviewDate) {
+            this.reviewedAt = reviewDate;
             return this;
         }
 
