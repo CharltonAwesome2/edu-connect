@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
  */
 
 public class userFactory {
-    public static User createUser(String name, String surname, String studentNumber, 
+    public static User createUser(String name, String surname, String studentNumber,
                                   String email, String contactNumber) {
         
-        if (!HelperUtil.isNullOrEmpty(name) || !HelperUtil.isNullOrEmpty(surname) || 
+        if (!HelperUtil.isNullOrEmpty(name) || !HelperUtil.isNullOrEmpty(surname) ||
             !HelperUtil.isNullOrEmpty(studentNumber)) {
             return null;
         }

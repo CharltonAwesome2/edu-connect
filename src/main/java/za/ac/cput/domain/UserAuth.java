@@ -40,7 +40,7 @@ public class UserAuth {
         return user;
     }
 
-    
+
     @Override
     public String toString() {
         return "UserAuth [authId=" + authId + ", passwordHash=" + passwordHash + ", createdAt="
