@@ -4,12 +4,15 @@ import org.junit.jupiter.api.*;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.enums.PaymentStatus;
-import za.ac.cput.factory.PaymentFactory;
-
 import java.time.LocalDateTime;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+/* PaymentRepositoryTest.java
+    Paymenet Repository Test class
+    Author: Ayabonga Jervasio Yawa (221241558)
+    Date: 26 March 2026
+*/
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PaymentRepositoryTest {
@@ -72,8 +75,7 @@ class PaymentRepositoryTest {
     @Test
     @Order(3)
     void update() {
-        repository.create(payment1); // ensure exists
-
+        repository.create(payment1);
         Payment updatedPayment = new Payment.Builder()
                 .copy(payment1)
                 .setAmount(500.00)
@@ -90,7 +92,7 @@ class PaymentRepositoryTest {
     @Test
     @Order(5)
     void delete() {
-        repository.create(payment3); // ensure exists
+        repository.create(payment3);
 
         System.out.println("Deleting Payment: " + payment3);
 
