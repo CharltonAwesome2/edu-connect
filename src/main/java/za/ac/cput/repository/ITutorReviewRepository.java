@@ -8,7 +8,7 @@ import java.util.List;
     Author: Ayabonga Jervasio Yawa (221241558)
     Date: 24 March 2026
 */
-public interface ITutorReviewRepository extends IRepositry <TutorReview, Long>{
+public interface ITutorReviewRepository extends IRepository <TutorReview, Long>{
     List<TutorReview> getAll();
 }
 

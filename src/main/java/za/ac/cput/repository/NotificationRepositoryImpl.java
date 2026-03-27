@@ -1,13 +1,15 @@
-package za.ac.cput.repository.impl;
+package za.ac.cput.repository;
 
-*/ NotificationRepositoryImpl.java
+// package za.ac.cput.repository.impl;
+
+/* NotificationRepositoryImpl.java
 Notification repository Entity 
 Author : Nolwazi Zulu (220118876)
 Date: 27 March 2026
-/* 
+*/
 
 import za.ac.cput.domain.Notification;
-import za.ac.cput.repository.NotificationRepository;
+// import za.ac.cput.repository.NotificationRepository;
 
 import java.util.HashMap;
 import java.util.Map;

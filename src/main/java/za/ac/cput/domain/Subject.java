@@ -12,6 +12,10 @@ public class Subject {
     private String subjectCode;
     private String department;
 
+    public Subject(){
+        
+    }
+
     private Subject(Builder builder) {
         this.subjectId = builder.subjectId;
         this.subjectName = builder.subjectName;

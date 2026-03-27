@@ -11,7 +11,7 @@ import java.util.Map;
  * Date: 26 March 2026
  */
 
-public class UserAuthRepository implements IRepositry<UserAuth, Long> {
+public class UserAuthRepository implements IRepository<UserAuth, Long> {
 
     private static UserAuthRepository repository = null;
     private Map<Long, UserAuth> userAuthMap;

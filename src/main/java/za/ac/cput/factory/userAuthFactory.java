@@ -1,10 +1,9 @@
 package za.ac.cput.factory;
+import java.time.LocalDateTime;
 
 import za.ac.cput.domain.User;
 import za.ac.cput.domain.UserAuth;
 import za.ac.cput.util.HelperUtil;
-
-import java.time.LocalDateTime;
 
 /**
  * userAuthFactory.java
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
  * Date: 21 March 2026
  */
 
-public class userAuthFactory {
+public class UserAuthFactory {
     public static UserAuth createUserAuth(String password, User user) {
         
         if (!HelperUtil.isNullOrEmpty(password)) {
