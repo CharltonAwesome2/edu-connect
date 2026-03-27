@@ -29,7 +29,6 @@ public class UserAuthFactoryTest {
         assertNotNull(auth.getPasswordHash());
         assertEquals(user, auth.getUser());
 
-        // Ensure password is hashed (not equal to raw password)
         assertNotEquals("password123", auth.getPasswordHash());
     }
 
