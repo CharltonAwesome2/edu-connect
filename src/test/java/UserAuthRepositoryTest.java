@@ -15,7 +15,6 @@ public class UserAuthRepositoryTest {
     @BeforeEach
     void setUp() {
         repository = UserAuthRepository.getRepository();
-//        repository.clear(); // 🔥 reset before each test
 
         User user = new User.Builder()
                 .setUserId(1L)
