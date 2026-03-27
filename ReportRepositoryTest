@@ -1,0 +1,68 @@
+package za.ac.cput.repository;
+
+*/ReportRepositoryTest.java
+Report Repository Test Entity
+Author : Nolwazi Zulu(220118876) 
+Date : 27 March 2026 
+/*
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.Report;
+import za.ac.cput.factory.ReportFactory;
+import za.ac.cput.repository.impl.ReportRepositoryImpl;
+
+import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReportRepositoryTest {
+
+    private ReportRepository repository;
+    private Report report;
+
+    @BeforeEach
+    void setUp() {
+        repository = ReportRepositoryImpl.getRepository();
+
+        report = ReportFactory.createReport(
+                "Test report",
+                "This is a test description",
+                LocalDateTime.now()
+        );
+    }
+
+    @Test
+    void create() {
+        Report created = repository.create(report);
+        assertNotNull(created);
+    }
+
+    @Test
+    void read() {
+        repository.create(report);
+        Report read = repository.read(report.getReportId());
+        assertNotNull(read);
+    }
+
+    @Test
+    void update() {
+        repository.create(report);
+
+        Report updated = new Report.Builder()
+                .copy(report)
+                .setTitle("Updated Report")
+                .build();
+
+        Report result = repository.update(updated);
+        assertNotNull(result);
+        assertEquals("Updated Report", result.getTitle());
+    }
+
+    @Test
+    void delete() {
+        repository.create(report);
+        boolean deleted = repository.delete(report.getReportId());
+        assertTrue(deleted);
+    }
+}
