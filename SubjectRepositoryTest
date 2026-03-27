@@ -1,0 +1,33 @@
+package za.ac.cput.repository;
+
+import za.ac.cput.domain.Subject;
+import za.ac.cput.Factory.SubjectFactory;
+
+public class SubjectRepositoryTest {
+
+    public static void main(String[] args) {
+
+        SubjectRepository repo = new SubjectRepository();
+
+        Subject subject = SubjectFactory.createSubject("Programming");
+
+        repo.create(subject);
+        System.out.println("Created: " + subject);
+
+        Subject read = repo.read(subject.getSubjectId());
+        System.out.println("Read: " + read);
+
+        Subject updated = new Subject.Builder()
+                .setSubjectId(subject.getSubjectId())
+                .setSubjectName("Java Programming")
+                .build();
+
+        repo.update(updated);
+        System.out.println("Updated: " + updated);
+
+        repo.delete(subject.getSubjectId());
+        System.out.println("Deleted");
+
+        System.out.println("All Subjects: " + repo.getAll());
+    }
+}

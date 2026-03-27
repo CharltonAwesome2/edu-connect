@@ -1,0 +1,40 @@
+package za.ac.cput.repository;
+
+import za.ac.cput.domain.BookingRequest;
+import za.ac.cput.Factory.BookingRequestFactory;
+
+import java.time.LocalDate;
+
+public class BookingRequestRepositoryTest {
+
+    public static void main(String[] args) {
+
+        BookingRequestRepository repo = new BookingRequestRepository();
+
+        BookingRequest booking = BookingRequestFactory.createBookingRequest(
+                101L,
+                LocalDate.now(),
+                1L
+        );
+
+        repo.create(booking);
+        System.out.println("Created: " + booking);
+
+        BookingRequest read = repo.read(booking.getTutoringSessionId());
+        System.out.println("Read: " + read);
+
+        BookingRequest updated = new BookingRequest.Builder()
+                .setTutoringSessionId(booking.getTutoringSessionId())
+                .setDate(LocalDate.now().plusDays(1))
+                .setUserId(1L)
+                .build();
+
+        repo.update(updated);
+        System.out.println("Updated: " + updated);
+
+        repo.delete(booking.getTutoringSessionId());
+        System.out.println("Deleted");
+
+        System.out.println("All Bookings: " + repo.getAll());
+    }
+}
