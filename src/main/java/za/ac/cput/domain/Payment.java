@@ -61,7 +61,7 @@ public class Payment {
                 "paymentID=" + paymentID +
                 ", amount=" + amount +
                 ", paidAt='" + paidAt + '\'' +
-                ", paymentStatus='" + paymentMethod + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
                 ", status=" + status +
                 ", session=" + session +
                 '}';
