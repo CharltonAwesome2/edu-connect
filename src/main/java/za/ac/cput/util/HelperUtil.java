@@ -14,13 +14,14 @@ public class HelperUtil {
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public static boolean isNullOrEmpty(String inputString) {
-        return inputString != null && !inputString.isEmpty();
+
+        return inputString == null || inputString.isEmpty();
     }
 
     public static boolean isValidEmail(String inputEmail) {
         EmailValidator emailValidator = EmailValidator.getInstance();
 
-        return emailValidator.isValid(inputEmail);
+        return inputEmail != null && emailValidator.isValid(inputEmail);
     }
 
     public static Long generateId() {
@@ -72,6 +73,8 @@ public class HelperUtil {
     public static String extractSalt(String hash) {
         return hash.substring(7, 29);
     }
+
+
 
     /*
     Valid:

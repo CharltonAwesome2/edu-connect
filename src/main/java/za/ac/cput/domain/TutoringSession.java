@@ -17,7 +17,7 @@ public class TutoringSession {
     private LocalDateTime sessionStart;
     private LocalDateTime sessionEnd;
     private LocalDateTime createdAt;
-    private SessionStatus status;
+    private SessionStatus sessionStatus;
     private TutorProfile tutor;
     private User student;
     private Subject subject;
@@ -31,7 +31,7 @@ public class TutoringSession {
         this.sessionStart = build.sessionStart;
         this.sessionEnd = build.sessionEnd;
         this.createdAt = build.createdAt;
-        this.status = build.status;
+        this.sessionStatus = build.sessionStatus;
         this.tutor = build.tutor;
         this.student = build.student;
         this.subject = build.subject;
@@ -54,7 +54,7 @@ public class TutoringSession {
     }
 
     public SessionStatus getStatus() {
-        return status;
+        return sessionStatus;
     }
 
     public User getStudent() {
@@ -72,7 +72,7 @@ public class TutoringSession {
     @Override
     public String toString() {
         return "TutoringSession [sessionId=" + sessionId + ", sessionStart=" + sessionStart + ", sessionEnd="
-                + sessionEnd + ", createdAt=" + createdAt + ", status=" + status + ", tutor=" + tutor + ", student="
+                + sessionEnd + ", createdAt=" + createdAt + ", status=" + sessionStatus + ", tutor=" + tutor + ", student="
                 + student + ", subject=" + subject + "]";
     }
 
@@ -82,7 +82,7 @@ public class TutoringSession {
         private LocalDateTime sessionStart;
         private LocalDateTime sessionEnd;
         private LocalDateTime createdAt;
-        private SessionStatus status;
+        private SessionStatus sessionStatus;
         private TutorProfile tutor;
         private User student;
         private Subject subject;
@@ -107,8 +107,8 @@ public class TutoringSession {
             return this;
         }
 
-        public Builder setSessionStatus(SessionStatus status) {
-            this.status = status;
+        public Builder setSessionStatus(SessionStatus sessionStatus) {
+            this.sessionStatus = sessionStatus;
             return this;
         }
 
@@ -138,7 +138,7 @@ public class TutoringSession {
             this.sessionEnd = session.sessionEnd;
             this.createdAt = session.createdAt;
             this.tutor = session.tutor;
-            this.status = session.status;
+            this.sessionStatus = session.sessionStatus;
             this.student = session.student;
             this.subject = session.subject;
             return this;

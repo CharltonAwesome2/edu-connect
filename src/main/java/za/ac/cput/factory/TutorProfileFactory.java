@@ -20,16 +20,12 @@ public class TutorProfileFactory {
     public static TutorProfile createTutorProfile(String bio,
                                                   int yearsExperience,
                                                   double hourlyRate,
-                                                  double rating,
-                                                  User user,
-                                                  List<TutorSubject> subjects,
-                                                  List<TutoringSession> sessions){
+                                                  double rating){
         Long tutorProfileId = HelperUtil.generateId();
         //Validation
-        if(HelperUtil.isNullOrEmpty(bio) ||
+        if(bio == null || HelperUtil.isNullOrEmpty(bio) ||
            !HelperUtil.isValidHourlyRate(hourlyRate) ||
            !HelperUtil.isValidYearsOfExperience(yearsExperience) ||
-           !HelperUtil.isValidUser(user) ||
            !HelperUtil.isValidRating(rating)){
             return null;
         }
@@ -39,10 +35,6 @@ public class TutorProfileFactory {
                 .setBio(bio)
                 .setYearsExperience(yearsExperience)
                 .setHourlyRate(hourlyRate)
-                .setRating(rating)
-                .setUser(user)
-                .setSubjects(subjects != null ? subjects : List.of())
-                .setSessions(sessions != null ? sessions : List.of())
                 .build();
     }
 }
