@@ -1,13 +1,13 @@
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.User;
-import za.ac.cput.factory.userFactory;
+import za.ac.cput.factory.UserFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserFactoryTest {
     @Test
     void testCreateUserSuccess() {
-        User user = userFactory.createUser(
+        User user = UserFactory.createUser(
                 "Lesego",
                 "Tshabalala",
                 "240263952",
@@ -23,7 +23,7 @@ public class UserFactoryTest {
 
     @Test
     void testCreateUserFail_NullName() {
-        User user = userFactory.createUser(
+        User user = UserFactory.createUser(
                 null,
                 "Tshabalala",
                 "240263952",
@@ -36,7 +36,7 @@ public class UserFactoryTest {
 
     @Test
     void testCreateUserFail_EmptySurname() {
-        User user = userFactory.createUser(
+        User user = UserFactory.createUser(
                 "Lesego",
                 "",
                 "240263952",
@@ -49,7 +49,7 @@ public class UserFactoryTest {
 
     @Test
     void testCreateUserFail_InvalidEmail() {
-        User user = userFactory.createUser(
+        User user = UserFactory.createUser(
                 "Lesego",
                 "Tshabalala",
                 "240263952",
@@ -62,7 +62,7 @@ public class UserFactoryTest {
 
     @Test
     void testCreateUserSuccess_MinimalValid() {
-        User user = userFactory.createUser(
+        User user = UserFactory.createUser(
                 "A",
                 "B",
                 "123",

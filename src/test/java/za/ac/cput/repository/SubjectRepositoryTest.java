@@ -1,7 +1,7 @@
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.Subject;
-import za.ac.cput.Factory.SubjectFactory;
+import za.ac.cput.factory.SubjectFactory;
 
 public class SubjectRepositoryTest {
 

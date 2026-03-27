@@ -8,7 +8,7 @@ import java.util.List;
     Author: Ayabonga Jervasio Yawa (221241558)
     Date: 24 March 2026
 */
-public interface IPaymentRepository extends IRepositry<Payment, Long> {
+public interface IPaymentRepository extends IRepository<Payment, Long> {
     List<Payment> getAll();
 
 

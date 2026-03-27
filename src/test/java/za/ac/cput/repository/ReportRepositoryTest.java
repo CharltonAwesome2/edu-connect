@@ -1,16 +1,17 @@
 package za.ac.cput.repository;
 
-*/ReportRepositoryTest.java
+/*ReportRepositoryTest.java
 Report Repository Test Entity
 Author : Nolwazi Zulu(220118876) 
 Date : 27 March 2026 
-/*
+*/
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Report;
+import za.ac.cput.domain.User;
 import za.ac.cput.factory.ReportFactory;
-import za.ac.cput.repository.impl.ReportRepositoryImpl;
+// import za.ac.cput.repository.impl.ReportRepositoryImpl;
 
 import java.time.LocalDateTime;
 
@@ -23,12 +24,13 @@ class ReportRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        repository = ReportRepositoryImpl.getRepository();
+        repository = ReportRepository.getRepository();
 
         report = ReportFactory.createReport(
                 "Test report",
-                "This is a test description",
-                LocalDateTime.now()
+                LocalDateTime.now(),
+                new User(),
+                new User()
         );
     }
 
@@ -51,12 +53,12 @@ class ReportRepositoryTest {
 
         Report updated = new Report.Builder()
                 .copy(report)
-                .setTitle("Updated Report")
+                // .set("Updated Report")
                 .build();
 
         Report result = repository.update(updated);
         assertNotNull(result);
-        assertEquals("Updated Report", result.getTitle());
+        assertEquals("Updated Report", result.getReason());
     }
 
     @Test

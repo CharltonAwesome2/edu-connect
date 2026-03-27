@@ -1,9 +1,13 @@
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.BookingRequest;
-import za.ac.cput.Factory.BookingRequestFactory;
+import za.ac.cput.domain.Subject;
+import za.ac.cput.domain.TutorProfile;
+import za.ac.cput.domain.User;
+import za.ac.cput.enums.BookingStatus;
+import za.ac.cput.factory.BookingRequestFactory;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class BookingRequestRepositoryTest {
 
@@ -12,9 +16,13 @@ public class BookingRequestRepositoryTest {
         BookingRequestRepository repo = new BookingRequestRepository();
 
         BookingRequest booking = BookingRequestFactory.createBookingRequest(
-                101L,
-                LocalDate.now(),
-                1L
+                LocalDateTime.now(),
+                0,
+                LocalDateTime.now(),
+                BookingStatus.APPROVED,
+                new User(),
+                new TutorProfile(),
+                new Subject()
         );
 
         repo.create(booking);
@@ -25,8 +33,7 @@ public class BookingRequestRepositoryTest {
 
         BookingRequest updated = new BookingRequest.Builder()
                 .setTutoringSessionId(booking.getTutoringSessionId())
-                .setDate(LocalDate.now().plusDays(1))
-                .setUserId(1L)
+                .setCreatedAt(LocalDateTime.now().plusDays(1))
                 .build();
 
         repo.update(updated);

@@ -1,29 +1,31 @@
-package za.ac.cput.repository.impl;
+package za.ac.cput.repository;
 
-*/ ReportRepositoryImpl.java
+// package za.ac.cput.repository.impl;
+
+/* ReportRepositoryImpl.java
 Report Repository Impl Entity 
 Author : Nolwazi Zulu (220118876)
 Date : 27 March 2026
-/*
+*/
 
 import za.ac.cput.domain.Report;
-import za.ac.cput.repository.ReportRepository;
+// import za.ac.cput.repository.ReportRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ReportRepositoryImpl implements ReportRepository {
+public class ReportRepository implements IRepository<Report, Long> {
 
-    private static ReportRepositoryImpl repository = null;
+    private static ReportRepository repository = null;
     private Map<Long, Report> reportDB;
 
-    private ReportRepositoryImpl() {
+    private ReportRepository() {
         reportDB = new HashMap<>();
     }
 
-    public static ReportRepositoryImpl getRepository() {
+    public static ReportRepository getRepository() {
         if (repository == null) {
-            repository = new ReportRepositoryImpl();
+            repository = new ReportRepository();
         }
         return repository;
     }

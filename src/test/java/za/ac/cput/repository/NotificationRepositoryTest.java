@@ -21,20 +21,18 @@ class NotificationRepositoryTest {
 
     private NotificationRepository repository;
     private Notification notification;
-    private User user;
 
     @BeforeEach
     void setUp() {
 
         repository = NotificationRepositoryImpl.getRepository();
 
-        user = new User();   // assuming your User class already exists
 
         notification = NotificationFactory.createNotification(
                 "Test message",
                 false,
                 LocalDateTime.now(),
-                user
+                new User()
         );
     }
 

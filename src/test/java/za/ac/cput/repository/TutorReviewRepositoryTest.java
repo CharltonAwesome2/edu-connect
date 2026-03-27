@@ -75,7 +75,7 @@ class TutorReviewRepositoryTest {
     void update() {
         repository.create(review2);
 
-        Long id = review2.getReviewId();
+        // Long id = review2.getReviewId();
 
         TutorReview updatedReview = new TutorReview.Builder()
                 .copy(review2)

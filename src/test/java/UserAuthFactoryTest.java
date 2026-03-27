@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.User;
 import za.ac.cput.domain.UserAuth;
-import za.ac.cput.factory.userAuthFactory;
+import za.ac.cput.factory.UserAuthFactory;
 import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,14 +22,13 @@ public class UserAuthFactoryTest {
     void testCreateUserAuthSuccess() {
         User user = createTestUser();
 
-        UserAuth auth = userAuthFactory.createUserAuth("password123", user);
+        UserAuth auth = UserAuthFactory.createUserAuth("password123", user);
 
         assertNotNull(auth);
         assertNotNull(auth.getAuthId());
         assertNotNull(auth.getPasswordHash());
         assertEquals(user, auth.getUser());
 
-        // Ensure password is hashed (not equal to raw password)
         assertNotEquals("password123", auth.getPasswordHash());
     }
 
@@ -37,7 +36,7 @@ public class UserAuthFactoryTest {
     void testCreateUserAuthFail_NullPassword() {
         User user = createTestUser();
 
-        UserAuth auth = userAuthFactory.createUserAuth(null, user);
+        UserAuth auth = UserAuthFactory.createUserAuth(null, user);
 
         assertNull(auth);
     }
@@ -46,14 +45,14 @@ public class UserAuthFactoryTest {
     void testCreateUserAuthFail_EmptyPassword() {
         User user = createTestUser();
 
-        UserAuth auth = userAuthFactory.createUserAuth("", user);
+        UserAuth auth = UserAuthFactory.createUserAuth("", user);
 
         assertNull(auth);
     }
 
     @Test
     void testCreateUserAuthFail_NullUser() {
-        UserAuth auth = userAuthFactory.createUserAuth("password123", null);
+        UserAuth auth = UserAuthFactory.createUserAuth("password123", null);
 
         assertNull(auth);
     }
@@ -62,7 +61,7 @@ public class UserAuthFactoryTest {
     void testPasswordIsHashed() {
         User user = createTestUser();
 
-        UserAuth auth = userAuthFactory.createUserAuth("mypassword", user);
+        UserAuth auth = UserAuthFactory.createUserAuth("mypassword", user);
 
         assertNotNull(auth);
         assertNotEquals("mypassword", auth.getPasswordHash());
