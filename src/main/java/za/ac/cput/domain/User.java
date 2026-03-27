@@ -18,6 +18,10 @@ public class User {
     private String contactNumber;
     private LocalDateTime createdAt;
 
+    public User (){
+
+    }
+
     private User(Builder builder) {
         this.userId = builder.userId;
         this.name = builder.name;

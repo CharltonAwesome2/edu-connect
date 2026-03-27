@@ -19,7 +19,7 @@ public class TutorProfile {
     private LocalDateTime createdAt;
     private User user;
 
-    private TutorProfile() {
+    public TutorProfile() {
     }
 
     //Builder Constructor

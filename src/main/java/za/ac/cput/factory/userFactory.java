@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * Date: 21 March 2026
  */
 
-public class userFactory {
+public class UserFactory {
     public static User createUser(String name, String surname, String studentNumber, 
                                   String email, String contactNumber) {
         
