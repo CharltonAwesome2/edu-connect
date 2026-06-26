@@ -6,6 +6,7 @@ import za.ac.cput.domain.TutoringSession;
 import za.ac.cput.domain.User;
 import za.ac.cput.util.HelperUtil;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -20,12 +21,22 @@ public class TutorProfileFactory {
     public static TutorProfile createTutorProfile(String bio,
                                                   int yearsExperience,
                                                   double hourlyRate,
-                                                  double rating){
+                                                  double rating) {
+        return createTutorProfile(bio, yearsExperience, hourlyRate, rating, null, null, null);
+    }
+
+    public static TutorProfile createTutorProfile(String bio,
+                                                  int yearsExperience,
+                                                  double hourlyRate,
+                                                  double rating,
+                                                  User user,
+                                                  List<TutorSubject> subjects,
+                                                  List<TutoringSession> sessions){
         Long tutorProfileId = HelperUtil.generateId();
         //Validation
-        if(bio == null || HelperUtil.isNullOrEmpty(bio) ||
-           !HelperUtil.isValidHourlyRate(hourlyRate) ||
-           !HelperUtil.isValidYearsOfExperience(yearsExperience) ||
+        if(HelperUtil.isNullOrEmpty(bio) ||
+           !HelperUtil.isPositiveDouble(hourlyRate) ||
+           !HelperUtil.isZeroOrPositiveInteger(yearsExperience) ||
            !HelperUtil.isValidRating(rating)){
             return null;
         }
@@ -35,6 +46,9 @@ public class TutorProfileFactory {
                 .setBio(bio)
                 .setYearsExperience(yearsExperience)
                 .setHourlyRate(hourlyRate)
+                .setAverageRating(rating)
+                .setCreatedAt(LocalDateTime.now())
+                .setUser(user)
                 .build();
     }
 }

@@ -6,69 +6,56 @@
 classDiagram
 
 class User:::lesego {
-    Long userId
-    String name
-    String surname
-    String studentNumber
-    String email
-    String contactNumber
-    LocalDateTime createdAt
-
-    register()
-    updateProfile()
+    &minus; Long userId
+    &minus; String name
+    &minus; String surname
+    &minus; String studentNumber
+    &minus; String email
+    &minus; String contactNumber
+    &minus; LocalDateTime createdAt
 }
 
 class UserAuth:::lesego {
-    Long authId
-    String passwordHash
-    LocalDateTime lastLogin
-
-    User user
-
-    login()
-    logout()
-    updatePassword()
+    &minus; Long authId
+    &minus; String passwordHash
+    &minus; LocalDateTime lastLogin
+    &minus; User user
 }
 
 class Role:::charlton {
-    Long roleId
-    String roleName
-    String description
+    &minus; Long roleId
+    &minus; String roleName
+    &minus; String description
 }
 
 class UserRole:::charlton {
-    Long userRoleId
-
-    User user
-    Role role
+    &minus; Long userRoleId
+    &minus; User user
+    &minus; Role role
 }
 
 class Subject:::reotshepile {
-    Long subjectId
-    String subjectName
-    String subjectCode
-    String department
+    &minus; Long subjectId
+    &minus; String subjectName
+    &minus; String subjectCode
+    &minus; String department
 }
 
 class TutorProfile:::franck {
-    Long tutorProfileId
-    String bio
-    int yearsExperience
-    double hourlyRate
-    double averageRating
-    LocalDateTime createdAt
+    &minus; Long tutorProfileId
+    &minus; String bio
+    &minus; int yearsExperience
+    &minus; double hourlyRate
+    &minus; double averageRating
+    &minus; LocalDateTime createdAt
+    &minus; User user
 
-    User user
-
-    updateBio()
-    updateRate()
-}
+    }
 
 class TutorSubject:::franck {
-    Long tutorSubjectId
-
-    TutorProfile tutorProfile
-    Subject subject
+    &minus; Long tutorSubjectId
+    &minus; TutorProfile tutorProfile
+    &minus; Subject subject
 }
 
 class BookingStatus {
@@ -80,19 +67,16 @@ class BookingStatus {
 }
 
 class BookingRequest:::reotshepile {
-    Long bookingRequestId
-    LocalDateTime requestedStartTime
-    int durationMinutes
-    LocalDateTime createdAt
+    &minus; Long bookingRequestId
+    &minus; LocalDateTime requestedStartTime
+    &minus; int durationMinutes
+    &minus; LocalDateTime createdAt
+    &minus; BookingStatus status
+    &minus; User user
+    &minus; TutorProfile tutorProfile
+    &minus; Subject subject
 
-    BookingStatus status
-    User student
-    TutorProfile tutorProfile
-    Subject subject
-
-    approveRequest()
-    rejectRequest()
-}
+    }
 
 class SessionStatus {
     <<enumeration>>
@@ -104,19 +88,16 @@ class SessionStatus {
 }
 
 class TutoringSession:::franck {
-    Long sessionId
-    LocalDateTime startTime
-    LocalDateTime endTime
-    LocalDateTime createdAt
+    &minus; Long sessionId
+    &minus; LocalDateTime startTime
+    &minus; LocalDateTime endTime
+    &minus; LocalDateTime createdAt
+    &minus; SessionStatus status
+    &minus; TutorProfile tutor
+    &minus; User user
+    &minus; Subject subject
 
-    SessionStatus status
-    TutorProfile tutor
-    User student
-    Subject subject
-
-    startSession()
-    endSession()
-}
+    }
 
 class ReviewRating {
     <<enumeration>>
@@ -128,16 +109,14 @@ class ReviewRating {
 }
 
 class TutorReview:::ayabonga {
-    Long reviewId
-    String comment
-    LocalDateTime reviewedAt
+    &minus; Long reviewId
+    &minus; String comment
+    &minus; LocalDateTime reviewedAt
+    &minus; ReviewRating rating
+    &minus; User user
+    &minus; TutoringSession session
 
-    ReviewRating rating
-    User student
-    TutoringSession session
-
-    submitReview()
-}
+    }
 
 class PaymentStatus {
     <<enumeration>>
@@ -148,38 +127,32 @@ class PaymentStatus {
 }
 
 class Payment:::ayabonga {
-    Long paymentId
-    double amount
-    LocalDateTime paidAt
-    String paymentMethod
+    &minus; Long paymentId
+    &minus; double amount
+    &minus; LocalDateTime paidAt
+    &minus; String paymentMethod
+    &minus; PaymentStatus status
+    &minus; TutoringSession session
 
-    PaymentStatus status
-    TutoringSession session
-
-    processPayment()
-}
+    }
 
 class Notification:::nolwazi {
-    Long notificationId
-    String message
-    boolean isRead
-    LocalDateTime createdAt
+    &minus; Long notificationId
+    &minus; String message
+    &minus; boolean isRead
+    &minus; LocalDateTime createdAt
+    &minus; User user
 
-    User user
-
-    markAsRead()
-}
+    }
 
 class Report:::nolwazi {
-    Long reportId
-    String reason
-    LocalDateTime reportedAt
+    &minus; Long reportId
+    &minus; String reason
+    &minus; LocalDateTime reportedAt
+    &minus; User reporter
+    &minus; User reportedUser
 
-    User reporter
-    User reportedUser
-
-    submitReport()
-}
+    }
 
 %% Relationships
 

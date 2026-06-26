@@ -19,7 +19,7 @@ public class TutorProfile {
     private LocalDateTime createdAt;
     private User user;
 
-    private TutorProfile() {
+    public TutorProfile() {
     }
 
     //Builder Constructor
@@ -134,7 +134,7 @@ public class TutorProfile {
                 throw new IllegalArgumentException(("Years of Experiment cannot be negative"));
             if (hourlyRate < 0)
                 throw new IllegalArgumentException("Hourly Rate cannot negative");
-            if (averageRating < 0 || averageRating > 0)
+            if (averageRating < 0 || averageRating > 5)
                 throw new IllegalArgumentException(("Rating must be between 0 and 5"));
             return new TutorProfile(this);
         }

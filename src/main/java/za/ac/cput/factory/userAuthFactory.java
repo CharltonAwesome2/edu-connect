@@ -1,0 +1,35 @@
+package za.ac.cput.factory;
+import java.time.LocalDateTime;
+
+import za.ac.cput.domain.User;
+import za.ac.cput.domain.UserAuth;
+import za.ac.cput.util.HelperUtil;
+
+/**
+ * userAuthFactory.java
+ * Factory class for creating UserAuth objects
+ * Author: Lesego Kutlwano Tshabalala (240263952)
+ * Date: 21 March 2026
+ */
+
+public class UserAuthFactory {
+    public static UserAuth createUserAuth(String password, User user) {
+        
+        if (!HelperUtil.isNullOrEmpty(password)) {
+            return null;
+        }
+
+        if (user == null) {
+            return null;
+        }
+
+        String hashedPassword = HelperUtil.hashPassword(password);
+
+        return new UserAuth.Builder()
+                .setAuthId(HelperUtil.generateId())
+                .passwordHash(hashedPassword)
+                .setCreatedAt(LocalDateTime.now())
+                .setUser(user)
+                .build();
+    }
+}
