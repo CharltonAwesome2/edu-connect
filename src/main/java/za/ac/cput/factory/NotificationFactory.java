@@ -18,7 +18,7 @@ public class NotificationFactory {
             LocalDateTime createdAt,
             User user) {
 
-        if (HelperUtil.isNullorEmpty(message)
+        if (HelperUtil.isNullOrEmpty(message)
                 || createdAt == null 
                 || user == null)
             return null;
